@@ -3,13 +3,67 @@
 
 <head>
   <title>Safe Eats</title>
-  <!-- <link rel="stylesheet" type="text/css" href="./lab_styles.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
 </head>
 
 <body>
   <div class="container">
     <div class="wrapper">
       <div class="header">Safe Eats Test</div>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="#after_school">After School Supper Program</a>
+          <a href="#b&b">B & B</a>
+          <a href="#bakery">Bakery</a>
+          <a href="#bakery_catering">Bakery/Catering</a>
+          <a href="#banquet">Banquet Hall/Ballroom</a>
+          <a href="#bar">Bar/Tavern/Lounge</a>
+          <a href="#cafeteria">Cafeteria</a>
+          <a href="#carry_out">Carry-out</a>
+          <a href="#casino">Casino</a>
+          <a href="#catering_only">Catering Only</a>
+          <a href="#church">Church/Temple/Mosque</a>
+          <a href="#coffee">Coffee Shop</a>
+          <a href="#college">College/University</a>
+          <a href="#convenience">Convenience Store</a>
+          <a href="#deli">Deli</a>
+          <a href="#diner">Diner</a>
+          <a href="#dollar_store">Dollar Store</a>
+          <a href="#donut">Donut</a>
+          <a href="#excluded">Excluded</a>
+          <a href="#farmers_market">Farmer's Market</a>
+          <a href="#fast_food">Fast Food</a>
+          <a href="#fire_hall">Fire/Community Hall</a>
+          <a href="#full_service">Full Service</a>
+          <a href="#full_serv_catering">Full Service/Catering</a>
+          <a href="#gas_station">Gast Station Store</a>
+          <a href="#grocery">Grocery Store</a>
+          <a href="#group_home">Group Home</a>
+          <a href="#health_care">Health Care Facility</a>
+          <a href="#hotel">Hotel</a>
+          <a href="#ice_cream">Ice Cream</a>
+          <a href="#institution">Institution</a>
+          <a href="#limited_serv">Limited Service</a>
+          <a href="#meat_market">Meat/Poultry Market</a>
+          <a href="#membership_warehouse">Membership Warehouse</a>
+          <a href="#micro_market">Micro Market</a>
+          <a href="#multiple_faciliites">Multiple Facilities</a>
+          <a href="#night_club">Night Club</a>
+          <a href="#pizza">Pizza</a>
+          <a href="#pre-packaged">Pre-Packaged Only</a>
+          <a href="#private_club">Private Club</a>
+          <a href="#private_school">Private School</a>
+          <a href="#public_school">Public School</a>
+          <a href="#restaurant">Restaurant</a>
+          <a href="#school">School</a>
+          <a href="#seafood">Seafood</a>
+          <a href="#senior_nutrition">Senior Nutrition Program</a>
+          <a href="#snack_bar">Snack Bar/Concession Stand</a>
+          <a href="#amusement_park">Stadium/Amusement Park</a>
+        </div>
+      </div>
       <button class="button" onclick="loadData()">Load Some JSON</button>
       <div class="content"></div>
       <div class="footer"></div>
@@ -40,8 +94,26 @@
           old_list.append(new_list);
           return res;
         })
-       
     }
+
+    function myFunction(){
+        document.getElementById("myDropdown").classList.toggle("show");
+}
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+            } else {
+             a[i].style.display = "none";
+            }
+        }
+ }
   </script>
 </body>
 
