@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <title>Safe Eats</title>
+  <!-- <link rel="stylesheet" type="text/css" href="./lab_styles.css"> -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">Safe Eats Test</div>
+      <button class="button" onclick="loadData()">Load Some JSON</button>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+    function loadData() {
+      fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
+        .then(res => res.json())
+        .then(res => res.map(c => c))
+        .then(res => {
+          let new_list = document.createElement("ul");
+          let old_list = document.querySelector(".content");
+          old_list.innerHTML = '';
+          new_list.innerHTML = '';
+          for(let x = 0; x < res.length; x++){
+            let new_item = document.createElement("li");
+            let store_name = res[x].name;
+            let store_category = res[x].category;
+            store_name = document.createTextNode(store_name);
+            store_category = document.createTextNode(store_category);
+            new_item.append(store_category);
+            new_item.append(" ");
+            new_item.append(store_name);
+            new_list.append(new_item);
+            console.log(res[x]);
+          }
+          old_list.append(new_list);
+          return res;
+        })
+       
+    }
+  </script>
+</body>
+
+</html> 
