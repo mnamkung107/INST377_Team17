@@ -1,6 +1,6 @@
 /* Dropdown Button */
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #88AAFF;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -10,7 +10,7 @@
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: #88AAFF;
 }
 
 /* The search field */
