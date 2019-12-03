@@ -129,11 +129,30 @@
               console.log(res); // logging step to check what we got
               return res;
             })
-            .then(res => res.data.map(c => c.category))
-            .then(
-              codes => (document.querySelector(".content").innerText = codes)
+            .then(res => res.data.map(c => c))
+            .then(res => {
+              let new_list = document.createElement("ul");
+          let old_list = document.querySelector("#content");
+          old_list.innerHTML = '';
+          new_list.innerHTML = '';
+          for(let x = 0; x < res.length; x++){
+            let new_item = document.createElement("li");
+            let store_name = res[x].name;
+            let store_category = res[x].category;
+            store_name = document.createTextNode(store_name);
+            store_category = document.createTextNode(store_category);
+            new_item.append(store_category);
+            new_item.append(" ");
+            new_item.append(store_name);
+            new_list.append(new_item);
+            console.log(res[x]);
+          }
+          old_list.append(new_list);
+          return res;
+        }
             );
         }
+      
     function myFunction(){
         document.getElementById("myDropdown").classList.toggle("show");
 }
