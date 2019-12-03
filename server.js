@@ -45,12 +45,9 @@ app.get('/api', (req, res) => {
   const baseURL = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
   fetch(baseURL)
     .then((r) => r.json())
-/*     .then(res => {
-      let maparray = res.map(function (data) { return data});
-      console.log(maparray);
-      return maparray;
-    }) */
+
     .then((data) => {
+      console.log(data);
       res.send({ data: data });
     })
     .catch((err) => {
@@ -61,10 +58,3 @@ app.get('/api', (req, res) => {
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`)); //process.env.port || 
 
-//hiroku 
-//2 common problems: disorganized repositories with everybody working on different things
-//npm install --save LibraryName 
-//is possible to flunk the class by not contributing to group work 
-//heroku makes a fake computer (virtual machine); 
-//process.env.port || <- in heroku documentation 
-//if undefined, it degrades to being port 3000 
