@@ -2,7 +2,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -42,12 +42,15 @@ app.use(express.static('public'));
 // this is, right now, an introduction to Callback Hell
 // but it is okay for a first-level example
 app.get('/api', (req, res) => {
-  const baseURL = 'https://api.umd.io/v0/courses/list';
+  const baseURL = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
   fetch(baseURL)
     .then((r) => r.json())
+/*     .then(res => {
+      let maparray = res.map(function (data) { return data});
+      console.log(maparray);
+      return maparray;
+    }) */
     .then((data) => {
-      data = data.filter(course => course.course_id.includes("INST"))
-      console.log(data);
       res.send({ data: data });
     })
     .catch((err) => {
