@@ -60,7 +60,7 @@
           <a href="#seafood">Seafood</a>
           <a href="#senior_nutrition">Senior Nutrition Program</a>
           <a href="#snack_bar">Snack Bar/Concession Stand</a>
-          <a href="#amusement_park">Stadium/Amusement Park</a>
+          <a href="#amusement_park">Stadium/Amusement Park</a> 
         </div>
       </div>
 
@@ -114,16 +114,16 @@
           }
           old_list.append(new_list);
           //let total = new Array();
-          total.push(res);
-          total.push(names);
-          total.push(categories);
+          total.push(res); //total[0] is res
+          total.push(names); //total[1] is names
+          total.push(categories); //total[2] is categories
           //return res;
           //return names;
           //return categories;
           console.log(total.length);
           console.log(total[1].length);
           return total; 
-        }//package 
+        }
             );
         }
     function myFunction(){
@@ -141,9 +141,11 @@
             a[i].style.display = "";
             } else {
              a[i].style.display = "none";
-            }
+            }    
         }
  }
+
+
 
  function test(total){
    console.log(total);
