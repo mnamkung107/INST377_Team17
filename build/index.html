@@ -71,11 +71,19 @@
     </div>
   </div>
   <script>
-    function loadData() {
-      fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
+/*     function loadData() {
+      fetch('/api')
+        .then(res => res.json())
+        .then(res => {
+            raw_data = res;
+            console.log("the raw data",raw_data);
+            newdata = res.data;
+            console.log(newdata);
+            return newdata;
+      //fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
       //console.log('fetch');
       //fetch('\api')
-        .then(res => res.json())
+       /*  .then(res => res.json())
         .then(res => res.map(c => c))
         .then(res => {
           let new_list = document.createElement("ul");
@@ -95,16 +103,37 @@
             console.log(res[x]);
           }
           old_list.append(new_list);
-          return res;
-        })
-    }
+          return res; */
+/*         })
+        .then(res => {
+          let categories = new Array();
+          let names = new Array();
+          for (let x = 0; x < res.length; x++){
+            categories.push(res[x].category)
+            names.push(res[x].names)
+            return res;
+          }
+        });
+    } */ 
     //add another then to the chain & use it to access all functions
     //just call the function & pass all of the functions along to the next steps
     //makes code more legible to other people & can split out functions and have people look over them more specifically
     //jquery is global & not compatible with REACT; would have to be included at the top of the page in the head 
     //will have to check if jquery document has been fully loaded
     //css animations? jquery is a good learning library but there are drawbacks 
-
+    function loadData() {
+          console.log("fetch"); // confirm code is running on click
+          fetch("/api")
+            .then(res => res.json())
+            .then(res => {
+              console.log(res); // logging step to check what we got
+              return res;
+            })
+            .then(res => res.data.map(c => c.category))
+            .then(
+              codes => (document.querySelector(".content").innerText = codes)
+            );
+        }
     function myFunction(){
         document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -128,9 +157,8 @@
 </body>
 
 </html> 
-<<<<<<< HEAD
 
-//lab 5; overwrite div with something else
+<!-- //lab 5; overwrite div with something else
 //filter full list & build links then inject that into the page 
 //.innerhtml should be used 
 //pass filtered data into next step; do return & then
@@ -146,6 +174,4 @@
 //express.static is public folder and that's where the finished code is; this would be build for us 
 //anonymous snitch line about conditions in the kitchen <-- considerations for the final presentation 
 //push the project further if you're not going to program a lot 
-=======
- 
->>>>>>> 5e896c4dac6ce685ff8ca93057b63aa5fb2ee931
+ -->
