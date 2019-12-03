@@ -5,7 +5,6 @@
   <title>Safe Eats</title>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
 </head>
-
 <body>
   <div class="container">
     <div class="wrapper">
@@ -65,62 +64,25 @@
         </div>
       </div>
 
-      <button class="button" onclick="loadData()">Data</button>
+      <button class="button" onclick="loadData()">Search</button>
+      <button class="button" onclick="test(total)">Try Me</button>
+      <div id="teststuff"></div>
       <div id="content"></div>
       <div class="footer"></div>
     </div>
   </div>
   <script>
-/*     function loadData() {
-      fetch('/api')
-        .then(res => res.json())
-        .then(res => {
-            raw_data = res;
-            console.log("the raw data",raw_data);
-            newdata = res.data;
-            console.log(newdata);
-            return newdata;
-      //fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
-      //console.log('fetch');
-      //fetch('\api')
-       /*  .then(res => res.json())
-        .then(res => res.map(c => c))
-        .then(res => {
-          let new_list = document.createElement("ul");
-          let old_list = document.querySelector("#content");
-          old_list.innerHTML = '';
-          new_list.innerHTML = '';
-          for(let x = 0; x < res.length; x++){
-            let new_item = document.createElement("li");
-            let store_name = res[x].name;
-            let store_category = res[x].category;
-            store_name = document.createTextNode(store_name);
-            store_category = document.createTextNode(store_category);
-            new_item.append(store_category);
-            new_item.append(" ");
-            new_item.append(store_name);
-            new_list.append(new_item);
-            console.log(res[x]);
-          }
-          old_list.append(new_list);
-          return res; */
-/*         })
-        .then(res => {
-          let categories = new Array();
-          let names = new Array();
-          for (let x = 0; x < res.length; x++){
-            categories.push(res[x].category)
-            names.push(res[x].names)
-            return res;
-          }
-        });
-    } */ 
+
     //add another then to the chain & use it to access all functions
     //just call the function & pass all of the functions along to the next steps
     //makes code more legible to other people & can split out functions and have people look over them more specifically
     //jquery is global & not compatible with REACT; would have to be included at the top of the page in the head 
     //will have to check if jquery document has been fully loaded
     //css animations? jquery is a good learning library but there are drawbacks 
+    let total = new Array();
+    let names = new Array();
+    let categories = new Array();
+
     function loadData() {
           console.log("fetch"); // confirm code is running on click
           fetch("/api")
@@ -132,27 +94,38 @@
             .then(res => res.data.map(c => c))
             .then(res => {
               let new_list = document.createElement("ul");
-          let old_list = document.querySelector("#content");
-          old_list.innerHTML = '';
-          new_list.innerHTML = '';
-          for(let x = 0; x < res.length; x++){
-            let new_item = document.createElement("li");
-            let store_name = res[x].name;
-            let store_category = res[x].category;
-            store_name = document.createTextNode(store_name);
-            store_category = document.createTextNode(store_category);
-            new_item.append(store_category);
-            new_item.append(" ");
-            new_item.append(store_name);
-            new_list.append(new_item);
-            console.log(res[x]);
+              let old_list = document.querySelector("#content");
+              old_list.innerHTML = '';
+              new_list.innerHTML = '';
+              for(let x = 0; x < res.length; x++){
+                let new_item = document.createElement("li");
+                let store_name = res[x].name;
+                let store_category = res[x].category;
+                store_name = document.createTextNode(store_name);
+                store_category = document.createTextNode(store_category);
+                new_item.append(store_category);
+                new_item.append(" ");
+                new_item.append(store_name);
+                new_list.append(new_item);
+                //console.log(res[x]);
+                names.push(res[x].name);
+                categories.push(res[x].category);
+
           }
           old_list.append(new_list);
-          return res;
-        }
+          //let total = new Array();
+          total.push(res);
+          total.push(names);
+          total.push(categories);
+          //return res;
+          //return names;
+          //return categories;
+          console.log(total.length);
+          console.log(total[1].length);
+          return total; 
+        }//package 
             );
         }
-      
     function myFunction(){
         document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -170,6 +143,23 @@
              a[i].style.display = "none";
             }
         }
+ }
+
+ function test(total){
+   console.log(total);
+   console.log(categories.length);
+   let search_results = document.createElement('ol');
+   let old_test = document.querySelector("#teststuff");
+   old_test.innerHTML = "";
+   for(let x = 0; x < categories.length; x++){
+     if(categories[x] == "Fast Food"){
+      let search_item = document.createElement('li'); 
+      search_item.appendChild(document.createTextNode(names[x]));
+      search_results.appendChild(search_item);
+     }
+   }
+   console.log(search_results);
+   old_test.append(search_results);
  }
 
   </script>
