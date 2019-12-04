@@ -4,6 +4,10 @@
 <head>
   <title>Safe Eats</title>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
   <div class="container">
@@ -64,6 +68,7 @@
         </div>
       </div>
 
+
       <button class="button" onclick="loadData()">Search</button>
       <button class="button" onclick="test(total)">Try Me</button>
       <div id="teststuff"></div>
@@ -82,6 +87,7 @@
     let total = new Array();
     let names = new Array();
     let categories = new Array();
+    let results = new Array();
 
     function loadData() {
           console.log("fetch"); // confirm code is running on click
@@ -110,6 +116,7 @@
                 //console.log(res[x]);
                 names.push(res[x].name);
                 categories.push(res[x].category);
+                results.push(res[x].inspection_results);
 
           }
           old_list.append(new_list);
@@ -117,11 +124,8 @@
           total.push(res); //total[0] is res
           total.push(names); //total[1] is names
           total.push(categories); //total[2] is categories
-          //return res;
-          //return names;
-          //return categories;
-          console.log(total.length);
-          console.log(total[1].length);
+          total.push(results); //total[3] is results
+          console.log(total[3].length);
           return total; 
         }
             );
@@ -143,26 +147,31 @@
              a[i].style.display = "none";
             }    
         }
+        console.log(input);
  }
 
 
 
  function test(total){
-   console.log(total);
-   console.log(categories.length);
    let search_results = document.createElement('ol');
    let old_test = document.querySelector("#teststuff");
    old_test.innerHTML = "";
    for(let x = 0; x < categories.length; x++){
-     if(categories[x] == "Fast Food"){
+     if(categories[x] == "Stadium/Amusement Park"){
+      if(results[x] != "Non-Compliant - Violations Observed" || 
+      results[x] != "Critical Violations observed" || 
+      results[x] != "Facility Closed"){
       let search_item = document.createElement('li'); 
       search_item.appendChild(document.createTextNode(names[x]));
       search_results.appendChild(search_item);
      }
+    }
    }
    console.log(search_results);
    old_test.append(search_results);
  }
+
+
 
   </script>
 </body>
