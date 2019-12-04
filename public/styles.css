@@ -1,7 +1,21 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald);
+/* @import url(https://fonts.googleapis.com/css?family=Oswald); */
 
 html{
   /* font-family: Oswald; */
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
 }
 
 /* Nav Bar Formatting */
@@ -225,15 +239,22 @@ div.checkbox_select .select_input
     display: none;
 }
 
-div.wrapper
-{
-    display: block;
-    text-align: center;
+
+/* MAP */
+#map {
+  width: 100%;
+  height: 400px;
+  background-color: grey;
 }
-#make_checkbox_select
-{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+.mapouter {
+  /* position: relative; */
+  /* text-align: right; */
+  height: 620px;
+  width: 796px;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 620px;
+  width: 796px;
 }
