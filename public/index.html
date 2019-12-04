@@ -16,6 +16,7 @@
         <h1>Safe Eats</h1>
       </header>
 
+      <!-- NAVIGATION BAR -->
       <nav>
           <ul>
             <a href="#"><li>Home</li></a>
@@ -47,6 +48,7 @@
         let names = new Array();
         let categories = new Array();
         let results = new Array();
+        let locations = new Array();
         console.log("fetch"); // confirm code is running on click
         fetch("/api")
         .then(res => res.json())
@@ -55,15 +57,19 @@
         })
         .then(res => res.data.map(c => c))
         .then(res => {
+          console.log(res.length);
           for(let x = 0; x < res.length; x++){
             names.push(res[x].name);
             categories.push(res[x].category);
             results.push(res[x].inspection_results);
+            locations.push(res[x].geocoded_column_1);
           }
           total.push(res); //total[0] is res
           total.push(names); //total[1] is names
           total.push(categories); //total[2] is categories
           total.push(results); //total[3] is results
+          total.push(locations);
+          console.log(locations[0].coordinates);
           return total; 
         });
         </script>
