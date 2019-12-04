@@ -2,15 +2,45 @@
 <html lang="en">
 
 <head>
-  <title>Safe Eats</title>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
   <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Eats</title>
 
 </head>
 <body>
+    <header>
+        <h1>Safe Eats</h1>
+      </header>
+
+      <nav>
+          <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#about"><li>About</li></a>
+            <a href="#documentation"><li>Documentation</li></a>
+          </ul>
+          <div class="handle">
+            <p class="menu">Menu</p>
+            <div class="menu_icon">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+          </div>
+        </nav>
+
+        <script>
+            $('.handle').on('click', function(){
+              $('nav ul').toggleClass('showing');
+            });
+          </script>
+
+
+
+
   <!--Loading the data from the PG County Dataset using server.js-->
     <script>
         let total = new Array();
@@ -38,9 +68,11 @@
         });
         </script>
 
+<br>
+
+
   <div class="container">
     <div class="wrapper">
-      <div class="header"><h1>Safe Eats</h1></div>
 
       <!--Making the form for a list of category filters-->
       <form id="make_checkbox_select">
@@ -116,7 +148,8 @@
                     old_test.innerHTML = "";
 
                     for(let i = 0; i < e.selected.length; i++){
-                      let search_results = document.createElement('ol');
+                      let search_results = document.createElement('ul');
+                      search_results.style.listStyleType = 'none';
                       let results_head = document.createElement("H2");
                       let head_item = document.createTextNode(e.selected[i]);
                       results_head.appendChild(head_item);
@@ -134,7 +167,7 @@
                       }
                     }
                     if(!search_results.hasChildNodes()){
-                      old_test.append(document.createTextNode("No Results"));
+                      old_test.append(document.createTextNode("NO RESULTS"));
                     }
                     old_test.append(search_results);
                   }
@@ -143,7 +176,8 @@
               });
               </script>
 
-      <div id="content"></div>
+
+      <div id="content"></div> 
       <div class="footer"></div>
     </div>
   </div>
