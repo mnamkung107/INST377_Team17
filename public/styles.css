@@ -6,6 +6,8 @@ html{
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:700&display=swap');
 
+
+/* Header Format */
 body {
   margin:0px;
   font-family:'Nunito';
@@ -65,7 +67,6 @@ p {
   bottom:30px;
   font-size:12px;
   color:#999;
-  /*margin-top:200px; */
 }
 
 
@@ -332,4 +333,18 @@ div.checkbox_select .select_input
   background: none !important;
   height: 620px;
   width: 796px;
+}
+
+.body_content {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+}
+
+.documentation_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  
+
 }
