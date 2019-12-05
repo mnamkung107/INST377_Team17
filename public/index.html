@@ -2,195 +2,224 @@
 <html lang="en">
 
 <head>
-  <title>Safe Eats</title>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
-</head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Eats</title>
 
+</head>
 <body>
+    <header>
+        <h1>Safe Eats</h1>
+      </header>
+
+
+      <!-- NAVIGATION BAR -->
+      <nav>
+          <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="about.html"><li>About</li></a>
+            <a href="documentation.html"><li>Documentation</li></a>
+          </ul>
+          <div class="handle">
+            <p class="menu">Menu</p>
+            <div class="menu_icon">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+          </div>
+        </nav>
+
+        <script>
+            $('.handle').on('click', function(){
+              $('nav ul').toggleClass('showing');
+            });
+          </script>
+
+
+
+
+  <!--Loading the data from the PG County Dataset using server.js-->
+    <script>
+        let total = new Array();
+        let names = new Array();
+        let categories = new Array();
+        let results = new Array();
+        let locations = new Array();
+        console.log("fetch"); // confirm code is running on click
+        fetch("/api")
+        .then(res => res.json())
+        .then(res => {
+          return res;
+        })
+        .then(res => res.data.map(c => c))
+        .then(res => {
+          console.log(res.length);
+          for(let x = 0; x < res.length; x++){
+            names.push(res[x].name);
+            categories.push(res[x].category);
+            results.push(res[x].inspection_results);
+            locations.push(res[x].geocoded_column_1);
+          }
+          total.push(res); //total[0] is res
+          total.push(names); //total[1] is names
+          total.push(categories); //total[2] is categories
+          total.push(results); //total[3] is results
+          total.push(locations);
+          console.log(locations[0].coordinates);
+          return total; 
+        });
+        </script>
+
+<br>
+
+
   <div class="container">
     <div class="wrapper">
-      <div class="header">Safe Eats Test</div>
-      <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-        <div id="myDropdown" class="dropdown-content">
-          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-          <a href="#after_school">After School Supper Program</a>
-          <a href="#b&b">B & B</a>
-          <a href="#bakery">Bakery</a>
-          <a href="#bakery_catering">Bakery/Catering</a>
-          <a href="#banquet">Banquet Hall/Ballroom</a>
-          <a href="#bar">Bar/Tavern/Lounge</a>
-          <a href="#cafeteria">Cafeteria</a>
-          <a href="#carry_out">Carry-out</a>
-          <a href="#casino">Casino</a>
-          <a href="#catering_only">Catering Only</a>
-          <a href="#church">Church/Temple/Mosque</a>
-          <a href="#coffee">Coffee Shop</a>
-          <a href="#college">College/University</a>
-          <a href="#convenience">Convenience Store</a>
-          <a href="#deli">Deli</a>
-          <a href="#diner">Diner</a>
-          <a href="#dollar_store">Dollar Store</a>
-          <a href="#donut">Donut</a>
-          <a href="#excluded">Excluded</a>
-          <a href="#farmers_market">Farmer's Market</a>
-          <a href="#fast_food">Fast Food</a>
-          <a href="#fire_hall">Fire/Community Hall</a>
-          <a href="#full_service">Full Service</a>
-          <a href="#full_serv_catering">Full Service/Catering</a>
-          <a href="#gas_station">Gast Station Store</a>
-          <a href="#grocery">Grocery Store</a>
-          <a href="#group_home">Group Home</a>
-          <a href="#health_care">Health Care Facility</a>
-          <a href="#hotel">Hotel</a>
-          <a href="#ice_cream">Ice Cream</a>
-          <a href="#institution">Institution</a>
-          <a href="#limited_serv">Limited Service</a>
-          <a href="#meat_market">Meat/Poultry Market</a>
-          <a href="#membership_warehouse">Membership Warehouse</a>
-          <a href="#micro_market">Micro Market</a>
-          <a href="#multiple_faciliites">Multiple Facilities</a>
-          <a href="#night_club">Night Club</a>
-          <a href="#pizza">Pizza</a>
-          <a href="#pre-packaged">Pre-Packaged Only</a>
-          <a href="#private_club">Private Club</a>
-          <a href="#private_school">Private School</a>
-          <a href="#public_school">Public School</a>
-          <a href="#restaurant">Restaurant</a>
-          <a href="#school">School</a>
-          <a href="#seafood">Seafood</a>
-          <a href="#senior_nutrition">Senior Nutrition Program</a>
-          <a href="#snack_bar">Snack Bar/Concession Stand</a>
-          <a href="#amusement_park">Stadium/Amusement Park</a>
-        </div>
-      </div>
 
-      <button class="button" onclick="loadData()">Data</button>
-      <div id="content"></div>
+      <!--Making the form for a list of category filters-->
+      <div class ='row'>
+      <div class='column'>
+      <form id="make_checkbox_select">
+        <select name="Search">
+            <option value="After School Supper Program">After School Supper Program</option>
+            <option value="B & B">B & B</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Bakery/Catering">Bakery/Catering</option>
+            <option value="Banquet Hall/Ballroom">Banquet Hall/Ballroom</option>
+            <option value="Bar/Tavern/Lounge">Bar/Tavern/Lounge</option>
+            <option value="Cafeteria">Cafeteria</option>
+            <option value="Carry-out">Carry-out</option>
+            <option value="Casino">Casino</option>
+            <option value="Catering Only">Catering Only</option>
+            <option value="Church/Temple/Mosque">Church/Temple/Mosque</option>
+            <option value="Coffee Shop">Coffee Shop</option>
+            <option value="College/University">College/University</option>
+            <option value="Convenience Store">Convenience Store</option>
+            <option value="Deli">Deli</option>
+            <option value="Diner">Diner</option>
+            <option value="Dollar Store">Dollar Store</option>
+            <option value="Donut">Donut</option>
+            <option value="Excluded">Excluded</option>
+            <option value="Farmer's Market">Farmer's Market</option>
+            <option value="Fast Food">Fast Food</option>
+            <option value="Fire/Community Hall">Fire/Community Hall</option>
+            <option value="Full Service">Full Service</option>
+            <option value="Full Service/Catering">Full Service/Catering</option>
+            <option value="Gas Station Store">Gas Station Store</option>
+            <option value="Grocery Store">Grocery Store</option>
+            <option value=">Group Home">>Group Home</option>
+            <option value="Health Care Facility">Health Care Facility</option>
+            <option value="Hotel">Hotel</option>
+            <option value="Ice Cream">Ice Cream</option>
+            <option value="Institution">Institution</option>
+            <option value="Limited Service">Limited Service</option>
+            <option value="Meat/Poultry Market">Meat/Poultry Market</option>
+            <option value="Membership Warehouse">Membership Warehouse</option>
+            <option value="Micro Market">Micro Market</option>
+            <option value="Multiple Facilities">Multiple Facilities</option>
+            <option value="Night Club">Night Club</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Pre-Packaged Only">Pre-Packaged Only</option>
+            <option value="Private Club">Private Club</option>
+            <option value="Private School">Private School</option>
+            <option value="Public School">Public School</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="School">School</option>
+            <option value="Seafood">Seafood</option>
+            <option value="Senior Nutrition Program">Senior Nutrition Program</option>
+            <option value="Snack Bar/Concession Stand">Snack Bar/Concession Stand</option>
+            <option value="Stadium/Amusement Park">Stadium/Amusement Park</option>
+        </select>
+        <input type="submit" />
+      </form>
+      <div id="content"></div> 
+    </div>
+
+
+<!-- MAP -->
+    <div class='column'>
+        <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe
+                width="796"
+                height="620"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=prince%20Georges%20county&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+              ></iframe
+            </div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+
+
+      <!--Starting script to filter the data-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script>
+        $(function()
+        {
+          var mySelectCheckbox = new checkbox_select(
+          {
+            selector : "#make_checkbox_select",
+                  selected_translation : "selected",
+                  all_translation : "Select All",
+                  not_found : "Not Found",
+      
+            //Actual function that displayes the filtered lists based on category
+            onApply : function(e)
+            {
+                    let old_test = document.querySelector("#content");
+                    old_test.innerHTML = "";
+
+                    for(let i = 0; i < e.selected.length; i++){
+                      let search_results = document.createElement('ul');
+                      search_results.style.listStyleType = 'none';
+                      let results_head = document.createElement("H2");
+                      let head_item = document.createTextNode(e.selected[i]);
+                      results_head.appendChild(head_item);
+                      old_test.append(results_head);
+
+                      for(let x = 0; x < categories.length; x++){
+                        if(categories[x] == e.selected[i]){
+                          if(results[x] != "Non-Compliant - Violations Observed" ||
+                          results[x] != "Compliance Schedule - Outstanding" || 
+                          results[x] != "Complaint - Health Risk" || 
+                          results[x] != "Critical Violations observed" || 
+                          results[x] != "Facility Closed"){
+                            let search_item = document.createElement('li'); 
+                            search_item.appendChild(document.createTextNode(names[x]));
+                            search_results.appendChild(search_item);
+                        }
+                      }
+                    }
+                    if(!search_results.hasChildNodes()){
+                      old_test.append(document.createTextNode("NO RESULTS"));
+                    }
+                    old_test.append(search_results);
+                  }
+                  }
+                });        
+              });
+              </script>
+
+
       <div class="footer"></div>
     </div>
   </div>
-  <script>
-/*     function loadData() {
-      fetch('/api')
-        .then(res => res.json())
-        .then(res => {
-            raw_data = res;
-            console.log("the raw data",raw_data);
-            newdata = res.data;
-            console.log(newdata);
-            return newdata;
-      //fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
-      //console.log('fetch');
-      //fetch('\api')
-       /*  .then(res => res.json())
-        .then(res => res.map(c => c))
-        .then(res => {
-          let new_list = document.createElement("ul");
-          let old_list = document.querySelector("#content");
-          old_list.innerHTML = '';
-          new_list.innerHTML = '';
-          for(let x = 0; x < res.length; x++){
-            let new_item = document.createElement("li");
-            let store_name = res[x].name;
-            let store_category = res[x].category;
-            store_name = document.createTextNode(store_name);
-            store_category = document.createTextNode(store_category);
-            new_item.append(store_category);
-            new_item.append(" ");
-            new_item.append(store_name);
-            new_list.append(new_item);
-            console.log(res[x]);
-          }
-          old_list.append(new_list);
-          return res; */
-/*         })
-        .then(res => {
-          let categories = new Array();
-          let names = new Array();
-          for (let x = 0; x < res.length; x++){
-            categories.push(res[x].category)
-            names.push(res[x].names)
-            return res;
-          }
-        });
-    } */ 
-    //add another then to the chain & use it to access all functions
-    //just call the function & pass all of the functions along to the next steps
-    //makes code more legible to other people & can split out functions and have people look over them more specifically
-    //jquery is global & not compatible with REACT; would have to be included at the top of the page in the head 
-    //will have to check if jquery document has been fully loaded
-    //css animations? jquery is a good learning library but there are drawbacks 
-    function loadData() {
-          console.log("fetch"); // confirm code is running on click
-          fetch("/api")
-            .then(res => res.json())
-            .then(res => {
-              console.log(res); // logging step to check what we got
-              return res;
-            })
-            .then(res => res.data.map(c => c))
-            .then(res => {
-              let new_list = document.createElement("ul");
-          let old_list = document.querySelector("#content");
-          old_list.innerHTML = '';
-          new_list.innerHTML = '';
-          for(let x = 0; x < res.length; x++){
-            let new_item = document.createElement("li");
-            let store_name = res[x].name;
-            let store_category = res[x].category;
-            store_name = document.createTextNode(store_name);
-            store_category = document.createTextNode(store_category);
-            new_item.append(store_category);
-            new_item.append(" ");
-            new_item.append(store_name);
-            new_list.append(new_item);
-            console.log(res[x]);
-          }
-          old_list.append(new_list);
-          return res;
-        }
-            );
-        }
-      
-    function myFunction(){
-        document.getElementById("myDropdown").classList.toggle("show");
-}
-    function filterFunction() {
-        var input, filter, ul, li, a, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        div = document.getElementById("myDropdown");
-        a = div.getElementsByTagName("a");
-        for (i = 0; i < a.length; i++) {
-            txtValue = a[i].textContent || a[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-            } else {
-             a[i].style.display = "none";
-            }
-        }
- }
 
-  </script>
+<!--Separate file that works with the form to filter for the selected options-->
+  <script src="filter.js"></script>
+
 </body>
 
 </html> 
-
-<!-- //lab 5; overwrite div with something else
-//filter full list & build links then inject that into the page 
-//.innerhtml should be used 
-//pass filtered data into next step; do return & then
-//next step do an injection 
-//instead of hardcoding filter, put them into arrays with id & string shown on screen 
-//first is id, next is what you want people to say
-//put in array file & store in json as static file 
-//best way to store data is put it into separate json file 
-//inport data & inject links 
-//make a separate injection function to load on different lists whenever you need
-//server.js should serve a public directory whch will be a build directory
-//source code will be moved into build folder 
-//express.static is public folder and that's where the finished code is; this would be build for us 
-//anonymous snitch line about conditions in the kitchen <-- considerations for the final presentation 
-//push the project further if you're not going to program a lot 
- -->

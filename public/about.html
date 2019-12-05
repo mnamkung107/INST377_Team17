@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Eats</title>
+
+</head>
+<body>
+    <header>
+        <h1>Safe Eats</h1>
+      </header>
+
+
+      <!-- NAVIGATION BAR -->
+      <nav>
+          <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="about.html"><li>About</li></a>
+            <a href="documentation.html"><li>Documentation</li></a>
+          </ul>
+          <div class="handle">
+            <p class="menu">Menu</p>
+            <div class="menu_icon">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+          </div>
+        </nav>
+
+        <script>
+            $('.handle').on('click', function(){
+              $('nav ul').toggleClass('showing');
+            });
+          </script>
+
+
+
+      <div class="footer"></div>
+    </div>
+  </div>
+
+<!--Separate file that works with the form to filter for the selected options-->
+  <script src="filter.js"></script>
+
+</body>
+
+</html> 
