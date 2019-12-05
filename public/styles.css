@@ -1,17 +1,14 @@
 /* @import url(https://fonts.googleapis.com/css?family=Oswald); */
 
-html{
-  /* font-family: Oswald; */
+*{
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Nunito:700&display=swap');
-
-
 /* Header Format */
 body {
   margin:0px;
-  font-family:'Nunito';
-  text-align:center;
+  /* text-align:center; */
+  background:#FEFEFE;
+  color:#4D4D4D;
 }
 
 #container {
@@ -89,8 +86,9 @@ header{
 	background: #07689f;
 	width: 100%;
 	padding: 40px 0;
-	color: white;
-	text-align: center;
+  color: white;
+  text-align: center;
+  
 }
 nav ul{
 	background-color: #a2d5f2;
@@ -104,14 +102,15 @@ nav ul{
 	-moz-transition: max-height 0.4s;
 	-o-transition: max-height 0.4s;
   transition: max-height 0.4s;
-  font-family:'Nunito', sans-serif;
+  display:flex;
+  justify-content: space-around;
 }
 nav ul li{
 	display: inline-block;
 	padding: 20px;
 }
 nav ul li:hover{
-	background-color: #07679f9d
+	background-color: #ff7e67;
 }
 a{
 	text-decoration: none;
@@ -140,7 +139,8 @@ footer{
 	display: none;
 }
 p.menu{
-	display: inline-block;
+  display: inline-block;
+  color: white;
 }
 .menu_icon div {
   background-color: white;
@@ -170,13 +170,11 @@ p.menu{
 	}
 	header h1{
     font-size: 3em;
-    font-family:'Nunito', sans-serif;
 	}
 }
 
 
 /* Dropdown Formatting */
-
 div.checkbox_select
 {
   width: 300px;
@@ -186,12 +184,11 @@ div.checkbox_select
 .checkbox_select_anchor
 {
   display: block;
-  background: #ff7e67;
+  background: #07689f;
   color: white;
   cursor: pointer;
   padding: 10px 5px 5px;
   position: relative;
-  font-family:'Nunito', sans-serif;
 }
 
 .checkbox_select_anchor:after
@@ -205,7 +202,6 @@ div.checkbox_select
   position: absolute;
   right: 10px;
   top: 15px;
-  font-family:'Nunito', sans-serif;
 }
 
 .expanded .checkbox_select_anchor:after
@@ -247,7 +243,6 @@ div.checkbox_select .select_input
     border: 1px solid #999;
     border-top: 0;
     border-bottom: 0;
-    font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li
 {
@@ -261,20 +256,17 @@ div.checkbox_select .select_input
       padding: 10px 5px 5px 40px;
      display: block;
   cursor: pointer;
-  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li label:hover
 {
-  background: #ff8b76;
+  background: #ff7e67;
   color: white;
-  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li input:checked + label
 {
   background: #ff7e67;
   color: white;
   text-shadow: 0px 1px 1px rgba(150, 150, 150, 1);
-  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li input
 {
@@ -284,7 +276,6 @@ div.checkbox_select .select_input
   display: inline-block;
   height: 100%;
   width: 30px;
-  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_search
 {
@@ -295,7 +286,6 @@ div.checkbox_select .select_input
     -webkit-box-sizing: border-box;
 	  -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family:'Nunito', sans-serif;
 }
 
 .checkbox_select_submit
@@ -307,7 +297,6 @@ div.checkbox_select .select_input
     width: 100%;
     font-size: 14px;
     cursor: pointer;
-    font-family:'Nunito', sans-serif;
 }
 
 .hide
@@ -336,7 +325,6 @@ div.checkbox_select .select_input
 }
 
 .body_content {
-  font-family: "Nunito", sans-serif;
   font-size: 18px;
 }
 
@@ -344,7 +332,56 @@ div.checkbox_select .select_input
   list-style-type: none;
   margin: 0;
   padding: 0;
-  font-family: "Nunito", sans-serif;
   
 
+}
+
+
+
+/* INTRO PAGE */
+a:link {
+  text-decoration: none;
+  color: #4D4D4D;
+}
+a:visited {
+  text-decoration: none;
+  color: #4D4D4D;
+}
+
+.box {
+	position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+	width:640px;
+	text-align:center;
+}
+
+.title,.title div span {
+	display:inline-block;
+  text-align:left;
+}
+.title {
+	position:relative;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin:0 auto;
+  color: #07689f;
+}
+.title .bar {
+	height:22px;
+	width:0%;
+  background:#ff7e67;
+}
+.title .text {
+	overflow:hidden;
+	width:0%;
+    margin-top:8px;
+    margin-bottom:8px;
+    /* color:#4ec7f3; */
+}
+
+.title .text span {
+	white-space: nowrap; 
 }
