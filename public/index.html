@@ -2,204 +2,52 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
-  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Eats</title>
 
 </head>
 <body>
-    <header>
-      <div id=container>
-        SAFE
-        <div id=flip>
-          <div><div>Eats</div></div>
-          <div><div>Food</div></div>
-          <div><div>Eats</div></div>
-        </div>
-      </div>
-      </header>
+    
 
+    
+<div class="box">
+        <h2 class="title">
+          <div class="bar"></div>
+          <div class="text" style="font-size:300%";><span>Safe Eats.</span></div>
+          <div class="bar"></div>
+              <div class="text">    
+                  <span>
+              <a href="home.html" style="color:#4ec7f3">Click Here to Start</a><span>        
+                </div>
+        </h2>
+        
 
-      <!-- NAVIGATION BAR -->
-      <nav>
-          <ul>
-            <a href="index.html"><li>Home</li></a>
-            <a href="about.html"><li>About</li></a>
-            <a href="documentation.html"><li>Documentation</li></a>
-          </ul>
-          <div class="handle">
-            <p class="menu">Menu</p>
-            <div class="menu_icon">
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-          </div>
-        </nav>
-
-        <script>
-            $('.handle').on('click', function(){
-              $('nav ul').toggleClass('showing');
-            });
-          </script>
-
-
-
-
-  <!--Loading the data from the PG County Dataset using server.js-->
-    <script>
-        let total = new Array();
-        let names = new Array();
-        let categories = new Array();
-        let results = new Array();
-        let locations = new Array();
-        console.log("fetch"); // confirm code is running on click
-        fetch("/api")
-        .then(res => res.json())
-        .then(res => {
-          return res;
-        })
-        .then(res => res.data.map(c => c))
-        .then(res => {
-          console.log(res.length);
-          for(let x = 0; x < res.length; x++){
-            names.push(res[x].name);
-            categories.push(res[x].category);
-            results.push(res[x].inspection_results);
-            locations.push(res[x].geocoded_column_1);
-          }
-          total.push(res); //total[0] is res
-          total.push(names); //total[1] is names
-          total.push(categories); //total[2] is categories
-          total.push(results); //total[3] is results
-          total.push(locations);
-          console.log(locations[0].coordinates);
-          return total; 
-        });
-        </script>
-
-<br>
-
-
-  <div class="container">
-    <div class="wrapper">
-
-      <!--Making the form for a list of category filters-->
-      <div class ='row'>
-      <div class='column'>
-      <form id="make_checkbox_select">
-        <select name="Search">
-            <option value="Bakery">Bakery</option>
-            <option value="Bar/Tavern/Lounge">Bar/Tavern/Lounge</option>
-            <option value="Carry-out">Carry-out</option>
-            <option value="Casino">Casino</option>
-            <option value="Coffee Shop">Coffee Shop</option>
-            <option value="Convenience Store">Convenience Store</option>
-            <option value="Deli">Deli</option>
-            <option value="Diner">Diner</option>
-            <option value="Farmer's Market">Farmer's Market</option>
-            <option value="Fast Food">Fast Food</option>
-            <option value="Gas Station Store">Gas Station Store</option>
-            <option value="Grocery Store">Grocery Store</option>
-            <option value="Ice Cream">Ice Cream</option>
-            <option value="Meat/Poultry Market">Meat/Poultry Market</option>
-            <option value="Micro Market">Micro Market</option>
-            <option value="Night Club">Night Club</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Private Club">Private Club</option>
-            <option value="Private School">Private School</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Seafood">Seafood</option>
-        </select>
-        <input type="submit" />
-      </form>
-      <div id="content"></div> 
-    </div>
-
-
-<!-- MAP -->
-    <div class='column'>
-        <div class="mapouter">
-            <div class="gmap_canvas">
-              <iframe
-                width="796"
-                height="620"
-                id="gmap_canvas"
-                src="https://maps.google.com/maps?q=prince%20Georges%20county&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-              ></iframe
-            </div>
-            </div>
-          </div>
-    </div>
-  </div>
-
-
-
-      <!--Starting script to filter the data-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-      <script>
-        $(function()
-        {
-          var mySelectCheckbox = new checkbox_select(
-          {
-            selector : "#make_checkbox_select",
-                  selected_translation : "selected",
-                  all_translation : "Select All",
-                  not_found : "Not Found",
       
-            //Actual function that displayes the filtered lists based on category
-            onApply : function(e)
-            {
-                    let old_test = document.querySelector("#content");
-                    old_test.innerHTML = "";
-
-                    for(let i = 0; i < e.selected.length; i++){
-                      let search_results = document.createElement('ul');
-                      search_results.style.listStyleType = 'none';
-                      let results_head = document.createElement("H2");
-                      let head_item = document.createTextNode(e.selected[i]);
-                      results_head.appendChild(head_item);
-                      old_test.append(results_head);
-
-                      for(let x = 0; x < categories.length; x++){
-                        if(categories[x] == e.selected[i]){ 
-                          if(results[x] != "Non-Compliant - Violations Observed" ||
-                          results[x] != "Compliance Schedule - Outstanding" || 
-                          results[x] != "Complaint - Health Risk" || 
-                          results[x] != "------" ||
-                          results[x] != "Critical Violations observed" || 
-                          results[x] != "Facility Closed"){
-                            let search_item = document.createElement('li'); 
-                            search_item.appendChild(document.createTextNode(names[x]));
-                            search_results.appendChild(search_item);
-                        }
-                      }
-                    }
-                    if(!search_results.hasChildNodes()){
-                      old_test.append(document.createTextNode("NO RESULTS"));
-                    }
-                    old_test.append(search_results);
-                  }
-                  }
-                });        
-              });
-              </script>
-
-
-      <div class="footer"></div>
-    </div>
+      <script>
+      jQuery.extend({
+          myeas:function(a){
+              var b="bez_"+jQuery.makeArray(arguments).join("_").replace(".","p");
+              if(typeof jQuery.easing[b]!="function"){
+                  var c=function(a,b){
+                      var c=[null,null],d=[null,null],e=[null,null],f=function(f,g){
+                          return e[g]=3*a[g],d[g]=3*(b[g]-a[g])-e[g],c[g]=1-e[g]-d[g],f*(e[g]+f*(d[g]+f*c[g]))},
+                          g=function(a){return e[0]+a*(2*d[0]+3*c[0]*a)},
+                          h=function(a){var b=a,c=0,d;while(++c<14){d=f(b,0)-a;if(Math.abs(d)<.001)break;b-=d/g(b)}return b};
+                          return function(a){return f(h(a),1)}};
+                          jQuery.easing[b]=function(b,d,e,f,g){return f*c([a[0],a[1]],[a[2],a[3]])(d/g)+e}}return b}});
+                          $('.title').each(function(index, element) {
+                              var el = $(this);
+                              el.find('.bar').animate({width:'70%'},600,$.myeas([0.7, 0, 0.175, 1]));
+                              setTimeout(function(){
+                                  el.find('.text').animate({width:'100%'},600,$.myeas([0.7, 0, 0.175, 1]));
+                                },300)
+                            });
+                            </script>
+                            
+                        </div>
   </div>
-
-<!--Separate file that works with the form to filter for the selected options-->
-  <script src="filter.js"></script>
 
 </body>
 
