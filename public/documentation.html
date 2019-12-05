@@ -41,40 +41,101 @@
             });
         </script>
 
-        <ul class="documentation_list">
-                <h1 style="color:#07689f";>Title: <span style="color:#ff7e67">Safe Eats</span></h1>
-                <h1 style="color:#07689f";>Team Members: <span style="color:#ff7e67">Michelle Namkung, Aisha Koroma, Jason Jiang, Ayesha Shafquat, Japheth Mulugeta, Myles Lane</span></h1>
-                <h2 style="color:#ff7e67";>Click <span> <a href="inst377-team17.herokuapp.com" style="color:#4ec7f3";>HERE</a> </span> to find our app!</h2>
-                <h2 style="color:#07689f";>Information Problem<span style="color:#ff7e67">:</span></h2>
-            <p class="body_content">The information problem that we are trying to solve 
-              is being unable to locate health information about various food facilities in an area 
-              you may not be familiar with.</p>
 
-            <h2 style="color:#07689f";>Stakeholders<span style="color:#ff7e67">:</span></h2>
-            <p class="body_content">First-time travelers or even locals to the Prince George’s County Area looking for a sanitary place to eat.</p>
+              <div class="container">
 
-            <h2 style="color:#ff7e67";>Click <span> <a href="https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz" style="color:#4ec7f3";>HERE</a> </span> to see our data!</h2>
+                    <!-- <h2>About Our App</h2> -->
+                    <h2 style="color:#07689f">Documentation</h2>
+                  
+                    <div class="accordion">
+                      <div class="accordion-item">
+                        <a style="color:#ff7e67">Team Members</a>
+                        <div class="content" style="color:#4D4D4D";>
+                          <p>Michelle Namkung, Aisha Koroma, Jason Jiang, Ayesha Shafquat, Japheth Mulugeta, Myles Lane
+                            </p>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                          <a style="color:#ff7e67">Information Problem</a>
+                        <div class="content">
+                          <p>The information problem that we are trying to solve 
+                                is being unable to locate health information about various food facilities in an area 
+                                you may not be familiar with.
+                            </p>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                            <a style="color:#ff7e67">Stakeholders</a>
+                          <div class="content">
+                            <p>First-time travelers or even locals to the Prince George’s County Area looking for a sanitary place to eat.
+                              </p>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                                <a style="color:#ff7e67">Data</a>
+                              <div class="content">
+                                <p>https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz
+                                  </p>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                                    <a style="color:#ff7e67">Solution</a>
+                                  <div class="content">
+                                    <p>To build a web application that allows quick lookups, filter options by category, and excludes facilities with health code violations all on one system.
+                                      </p>
+                                  </div>
+                                </div>
+                                <div class="accordion-item">
+                                        <a style="color:#ff7e67">Tech Rationale</a>
+                                      <div class="content">
+                                        <p>To build something similar to Google Maps and Yelp that would allow you to look at restaurants nearby based on the category the user wants and helps the user avoid facilities that have health code violations.
+                                          </p>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                            <a style="color:#ff7e67">System</a>
+                                          <div class="content">
+                                            <p>The app helps to address the problem by 
+                                                    displaying a list of restaurants based on category and excluding any facilities that have failed their health code inspections.
+                                              </p>
+                                          </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                                <a style="color:#ff7e67">Challenges</a>
+                                              <div class="content">
+                                                <p><ul>
+                                                        <li>Using/connecting to Heroku </li>
+                                                        <li>Understanding how to access the server and pass specific information through</li>
+                                                        <li>Pinpointing location for user on maps and getting all of the restaurants implemented</li>
+                                                        <li>Determining what specific info was necessary</li>
+                                                      </ul>
+                                                  </p>
+                                              </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                    <a style="color:#ff7e67">Future Work</a>
+                                                  <div class="content">
+                                                    <p>Allowing anonymous users or employees to leave reviews or tips about the facilities they are at. This would be something like a "tip-line".
+                                                      </p>
+                                                  </div>
+                                                </div>
+                    
+                    </div>
+                    
+                  </div>
+        
+        
+                  <script>
+                        const items = document.querySelectorAll(".accordion a");
+        
+        function toggleAccordion(){
+          this.classList.toggle('active');
+          this.nextElementSibling.classList.toggle('active');
+        }
+        
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+                  </script>
 
-            <h2 style="color:#07689f";>Solution<span style="color:#ff7e67">:</span></h2>
-            <p class="body_content">To build a web application that allows quick lookups, filter options by category, and excludes facilities with health code violations all on one system.</p>
-
-            <h2 style="color:#07689f";>Tech Rationale<span style="color:#ff7e67">:</span></h2>
-            <p class="body_content">To build something similar to Google Maps and Yelp that would allow you to look at restaurants nearby based on the category the user wants and helps the user avoid facilities that have health code violations.</p>
-
-            <h2 style="color:#07689f";>System<span style="color:#ff7e67">:</span></h2>
-            <p class="body_content">The app helps to address the problem by 
-                    displaying a list of restaurants based on category and excluding any facilities that have failed their health code inspections.</p>
-
-            <h2 style="color:#07689f";>Challenges<span style="color:#ff7e67">:</span></h2>
-              <ul class="body_content">
-                <li>Using/connecting to Heroku </li>
-                <li>Understanding how to access the server and pass specific information through</li>
-                <li>Pinpointing location for user on maps and getting all of the restaurants implemented</li>
-                <li>Determining what specific info was necessary</li>
-              </ul>
-
-              <h2 style="color:#07689f";>Future Work<span style="color:#ff7e67">:</span></h2>
-              <p class="body_content">Allowing anonymous users or employees to leave reviews or tips about the facilities they are at. This would be something like a "tip-line".</p>
 
       <div class="footer"></div>
     </div>
