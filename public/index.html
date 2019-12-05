@@ -191,7 +191,9 @@
 
                       for(let x = 0; x < categories.length; x++){
                         if(categories[x] == e.selected[i]){
-                          if(results[x] != "Non-Compliant - Violations Observed" || 
+                          if(results[x] != "Non-Compliant - Violations Observed" ||
+                          results[x] != "Compliance Schedule - Outstanding" || 
+                          results[x] != "Complaint - Health Risk" || 
                           results[x] != "Critical Violations observed" || 
                           results[x] != "Facility Closed"){
                             let search_item = document.createElement('li'); 
