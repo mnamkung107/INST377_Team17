@@ -392,7 +392,7 @@ a:visited {
 
 
 
-
+/* ACCORDION */
 
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
@@ -404,11 +404,6 @@ html {
   box-sizing: border-box;
 }
 
-.container {
-  margin: 0 auto;
-  padding: 4rem;
-  width: 48rem;
-}
 
 h3 {
   font-size: 1.75rem;
