@@ -1,260 +1,58 @@
-/* @import url(https://fonts.googleapis.com/css?family=Oswald); */
-
-html{
-  /* font-family: Oswald; */
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-}
-
-/* Nav Bar Formatting */
-header{
-	background: #00795F;
-	width: 100%;
-	padding: 40px 0;
-	color: white;
-	text-align: center;
-}
-nav ul{
-	background-color: #43A286;
-	color: white;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	overflow: hidden;
-	-webkit-transition: max-height 0.4s;
-	-ms-transition: max-height 0.4s;
-	-moz-transition: max-height 0.4s;
-	-o-transition: max-height 0.4s;
-	transition: max-height 0.4s;
-}
-nav ul li{
-	display: inline-block;
-	padding: 20px;
-}
-nav ul li:hover{
-	background-color: #399077
-}
-a{
-	text-decoration: none;
-	color: inherit;
-}
-section{
-	line-height: 1.5em;
-	font-size: 0.9em;
-	padding: 40px;
-	margin: 0 auto;
-	max-width: 960px;
-}
-footer{
-	text-align: center;
-	width: 100%;
-	font-size: 0.8em;
-	padding-bottom: 30px;
-}
-.handle {
-	width: 100%;
-	background-color: #005C48;
-	box-sizing: border-box;
-	padding: 15px;
-	cursor: pointer;
-	color: white;
-	display: none;
-}
-p.menu{
-	display: inline-block;
-}
-.menu_icon div {
-  background-color: white;
-  border-radius: 2px;
-  width: 35px;
-  height: 5px;
-  margin: 5px;
-}
-.menu_icon{
-	float: right;
-	margin: .5em 0;
-}
-@media screen and (max-width: 620px){
-	nav ul{
-		max-height: 0px;
-	}
-	nav ul li{
-		box-sizing: border-box;
-		width: 100%;
-		padding: 15px;
-	}
-	.showing{
-		max-height: 20em; 
-	}
-	.handle{
-		display: block;
-	}
-	header h1{
-		font-size: 3em;
-	}
-}
-
-
-/* Dropdown Formatting */
-
-div.checkbox_select
-{
-  width: 200px;
-  text-align: center;
-}
-
-.checkbox_select_anchor
-{
-  display: block;
-  background: #00795F;
+/* Dropdown Button */
+.dropbtn {
+  background-color: #88AAFF;
   color: white;
-  cursor: pointer;
-  padding: 10px 5px 5px;
-  position: relative;
-}
-
-.checkbox_select_anchor:after
-{
-  width: 0; 
-	height: 0; 
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid darkred;
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 15px;
-}
-
-.expanded .checkbox_select_anchor:after
-{
-	border-top: 0;
-	border-bottom: 10px solid firebrick;
-}
-
-
-.checkbox_select_anchor:hover
-{
-  background: #399077 !important;
-}
-
-div.checkbox_select .select_input
-{
-    width: 100%;
-    cursor: pointer;
-}
-
-.checkbox_select_dropdown
-{
-    display: none;
-    background: whitesmoke;
-}
-
-.checkbox_select_dropdown.show
-{
-    display: block;
-}
-
-.checkbox_select_dropdown ul
-{
-    max-height: 150px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #999;
-    border-top: 0;
-    border-bottom: 0;
-}
-.checkbox_select_dropdown ul li
-{
-    list-style: none;
-    position: relative;
-    color: #666;
-}
-.checkbox_select_dropdown ul li label
-{
-  position: relative;
-      padding: 10px 5px 5px 40px;
-     display: block;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
   cursor: pointer;
 }
-.checkbox_select_dropdown ul li label:hover
-{
-  background: #399077;
-  color: white;
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #88AAFF;
 }
-.checkbox_select_dropdown ul li input:checked + label
-{
-  background: #399077;
-  color: white;
-  text-shadow: 0px 1px 1px rgba(150, 150, 150, 1);
+
+/* The search field */
+#myInput {
+  box-sizing: border-box;
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
 }
-.checkbox_select_dropdown ul li input
-{
-  position: absolute;
-  left:0;
-  z-index:1;
+
+/* The search field when it gets focus/clicked on */
+#myInput:focus {outline: 3px solid #ddd;}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
   display: inline-block;
-  height: 100%;
-  width: 30px;
-}
-.checkbox_select_search
-{
-    width: 200px;
-    padding: 10px 5px 5px;
-    border: 1px solid #999;
-      border-top: 0;
-    -webkit-box-sizing: border-box;
-	  -moz-box-sizing: border-box;
-	  box-sizing: border-box;
 }
 
-.checkbox_select_submit
-{
-    background: #00795F;
-    color: white;
-    padding: 10px 5px 5px;
-    border: 0;
-    width: 100%;
-    font-size: 14px;
-    cursor: pointer;
-    font-family: Oswald;
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  z-index: 1;
 }
 
-.hide
-{
-    display: none;
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
 
-/* MAP */
-#map {
-  width: 100%;
-  height: 400px;
-  background-color: grey;
-}
-.mapouter {
-  /* position: relative; */
-  /* text-align: right; */
-  height: 620px;
-  width: 796px;
-}
-.gmap_canvas {
-  overflow: hidden;
-  background: none !important;
-  height: 620px;
-  width: 796px;
-}
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
