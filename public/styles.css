@@ -4,6 +4,71 @@ html{
   /* font-family: Oswald; */
 }
 
+@import url('https://fonts.googleapis.com/css?family=Nunito:700&display=swap');
+
+body {
+  margin:0px;
+  font-family:'Nunito';
+  text-align:center;
+}
+
+#container {
+  color:rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size:36px;
+  font-weight:bold; 
+  width:100%;
+  bottom:45%;
+  display:block;
+}
+
+#flip {
+  height:50px;
+  overflow:hidden;
+}
+
+#flip > div > div {
+  color:white;
+  padding:4px 12px;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background:#9ba1a3;
+}
+#flip div:first-child div {
+  background:#4ec7f3;
+}
+#flip div:last-child div {
+  background:#ff7e67;
+}
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
+
+p {
+  width:100%;
+  bottom:30px;
+  font-size:12px;
+  color:#999;
+  /*margin-top:200px; */
+}
+
+
 .row {
   display: flex;
   flex-direction: row;
@@ -20,14 +85,14 @@ html{
 
 /* Nav Bar Formatting */
 header{
-	background: #00795F;
+	background: #07689f;
 	width: 100%;
 	padding: 40px 0;
 	color: white;
 	text-align: center;
 }
 nav ul{
-	background-color: #43A286;
+	background-color: #a2d5f2;
 	color: white;
 	padding: 0;
 	margin: 0;
@@ -37,14 +102,15 @@ nav ul{
 	-ms-transition: max-height 0.4s;
 	-moz-transition: max-height 0.4s;
 	-o-transition: max-height 0.4s;
-	transition: max-height 0.4s;
+  transition: max-height 0.4s;
+  font-family:'Nunito', sans-serif;
 }
 nav ul li{
 	display: inline-block;
 	padding: 20px;
 }
 nav ul li:hover{
-	background-color: #399077
+	background-color: #07679f9d
 }
 a{
 	text-decoration: none;
@@ -65,7 +131,7 @@ footer{
 }
 .handle {
 	width: 100%;
-	background-color: #005C48;
+	background-color: #ff7e67;
 	box-sizing: border-box;
 	padding: 15px;
 	cursor: pointer;
@@ -102,7 +168,8 @@ p.menu{
 		display: block;
 	}
 	header h1{
-		font-size: 3em;
+    font-size: 3em;
+    font-family:'Nunito', sans-serif;
 	}
 }
 
@@ -111,18 +178,19 @@ p.menu{
 
 div.checkbox_select
 {
-  width: 200px;
+  width: 300px;
   text-align: center;
 }
 
 .checkbox_select_anchor
 {
   display: block;
-  background: #00795F;
+  background: #ff7e67;
   color: white;
   cursor: pointer;
   padding: 10px 5px 5px;
   position: relative;
+  font-family:'Nunito', sans-serif;
 }
 
 .checkbox_select_anchor:after
@@ -131,23 +199,24 @@ div.checkbox_select
 	height: 0; 
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid darkred;
+	border-top: 10px solid #fafafa;
   content: "";
   position: absolute;
   right: 10px;
   top: 15px;
+  font-family:'Nunito', sans-serif;
 }
 
 .expanded .checkbox_select_anchor:after
 {
 	border-top: 0;
-	border-bottom: 10px solid firebrick;
+	border-bottom: 10px solid #fafafa;
 }
 
 
 .checkbox_select_anchor:hover
 {
-  background: #399077 !important;
+  background: #d36956 !important;
 }
 
 div.checkbox_select .select_input
@@ -177,6 +246,7 @@ div.checkbox_select .select_input
     border: 1px solid #999;
     border-top: 0;
     border-bottom: 0;
+    font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li
 {
@@ -190,17 +260,20 @@ div.checkbox_select .select_input
       padding: 10px 5px 5px 40px;
      display: block;
   cursor: pointer;
+  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li label:hover
 {
-  background: #399077;
+  background: #ff8b76;
   color: white;
+  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li input:checked + label
 {
-  background: #399077;
+  background: #ff7e67;
   color: white;
   text-shadow: 0px 1px 1px rgba(150, 150, 150, 1);
+  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_dropdown ul li input
 {
@@ -210,28 +283,30 @@ div.checkbox_select .select_input
   display: inline-block;
   height: 100%;
   width: 30px;
+  font-family:'Nunito', sans-serif;
 }
 .checkbox_select_search
 {
-    width: 200px;
+    width: 300px;
     padding: 10px 5px 5px;
     border: 1px solid #999;
       border-top: 0;
     -webkit-box-sizing: border-box;
 	  -moz-box-sizing: border-box;
-	  box-sizing: border-box;
+    box-sizing: border-box;
+    font-family:'Nunito', sans-serif;
 }
 
 .checkbox_select_submit
 {
-    background: #00795F;
+    background: #07689f;
     color: white;
     padding: 10px 5px 5px;
     border: 0;
     width: 100%;
     font-size: 14px;
     cursor: pointer;
-    font-family: Oswald;
+    font-family:'Nunito', sans-serif;
 }
 
 .hide
