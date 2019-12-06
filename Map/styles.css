@@ -1,0 +1,393 @@
+/* @import url(https://fonts.googleapis.com/css?family=Oswald); */
+
+*{
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* Header Format */
+body {
+  margin:0px;
+  /* text-align:center; */
+  background:#FEFEFE;
+  color:#4D4D4D;
+}
+
+#container {
+  color:rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size:36px;
+  font-weight:bold; 
+  width:100%;
+  bottom:45%;
+  display:block;
+}
+
+#list_group {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+#flip {
+  height:50px;
+  overflow:hidden;
+}
+
+#flip > div > div {
+  color:white;
+  padding:4px 12px;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background:#9ba1a3;
+}
+#flip div:first-child div {
+  background:#4ec7f3;
+}
+#flip div:last-child div {
+  background:#ff7e67;
+}
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
+
+p {
+  width:100%;
+  bottom:30px;
+  font-size:12px;
+  color:#999;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+/* Nav Bar Formatting */
+header{
+	background: #07689f;
+	width: 100%;
+	padding: 40px 0;
+  color: white;
+  text-align: center;
+  
+}
+nav ul{
+	background-color: #a2d5f2;
+	color: white;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	overflow: hidden;
+	-webkit-transition: max-height 0.4s;
+	-ms-transition: max-height 0.4s;
+	-moz-transition: max-height 0.4s;
+	-o-transition: max-height 0.4s;
+  transition: max-height 0.4s;
+  display:flex;
+  justify-content: space-around;
+}
+nav ul li{
+	display: inline-block;
+	padding: 20px;
+}
+nav ul li:hover{
+	background-color: #ff7e67;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+section{
+	line-height: 1.5em;
+	font-size: 0.9em;
+	padding: 40px;
+	margin: 0 auto;
+	max-width: 960px;
+}
+footer{
+	text-align: center;
+	width: 100%;
+	font-size: 0.8em;
+	padding-bottom: 30px;
+}
+.handle {
+	width: 100%;
+	background-color: #ff7e67;
+	box-sizing: border-box;
+	padding: 15px;
+	cursor: pointer;
+	color: white;
+	display: none;
+}
+p.menu{
+  display: inline-block;
+  color: white;
+}
+.menu_icon div {
+  background-color: white;
+  border-radius: 2px;
+  width: 35px;
+  height: 5px;
+  margin: 5px;
+}
+.menu_icon{
+	float: right;
+	margin: .5em 0;
+}
+@media screen and (max-width: 620px){
+	nav ul{
+		max-height: 0px;
+	}
+	nav ul li{
+		box-sizing: border-box;
+		width: 100%;
+		padding: 15px;
+	}
+	.showing{
+		max-height: 20em; 
+	}
+	.handle{
+		display: block;
+	}
+	header h1{
+    font-size: 3em;
+	}
+}
+
+
+/* Dropdown Formatting */
+div.checkbox_select
+{
+  width: 300px;
+  text-align: center;
+}
+
+.checkbox_select_anchor
+{
+  display: block;
+  background: #07689f;
+  color: white;
+  cursor: pointer;
+  padding: 10px 5px 5px;
+  position: relative;
+}
+
+.checkbox_select_anchor:after
+{
+  width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #fafafa;
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+.expanded .checkbox_select_anchor:after
+{
+	border-top: 0;
+	border-bottom: 10px solid #fafafa;
+}
+
+
+.checkbox_select_anchor:hover
+{
+  background: #d36956 !important;
+}
+
+div.checkbox_select .select_input
+{
+    width: 100%;
+    cursor: pointer;
+}
+
+.checkbox_select_dropdown
+{
+    display: none;
+    background: whitesmoke;
+}
+
+.checkbox_select_dropdown.show
+{
+    display: block;
+}
+
+.checkbox_select_dropdown ul
+{
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #999;
+    border-top: 0;
+    border-bottom: 0;
+}
+.checkbox_select_dropdown ul li
+{
+    list-style: none;
+    position: relative;
+    color: #666;
+}
+.checkbox_select_dropdown ul li label
+{
+  position: relative;
+      padding: 10px 5px 5px 40px;
+     display: block;
+  cursor: pointer;
+}
+.checkbox_select_dropdown ul li label:hover
+{
+  background: #ff7e67;
+  color: white;
+}
+.checkbox_select_dropdown ul li input:checked + label
+{
+  background: #ff7e67;
+  color: white;
+  text-shadow: 0px 1px 1px rgba(150, 150, 150, 1);
+}
+.checkbox_select_dropdown ul li input
+{
+  position: absolute;
+  left:0;
+  z-index:1;
+  display: inline-block;
+  height: 100%;
+  width: 30px;
+}
+.checkbox_select_search
+{
+    width: 300px;
+    padding: 10px 5px 5px;
+    border: 1px solid #999;
+      border-top: 0;
+    -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.checkbox_select_submit
+{
+    background: #07689f;
+    color: white;
+    padding: 10px 5px 5px;
+    border: 0;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.hide
+{
+    display: none;
+}
+
+
+/* MAP */
+#map {
+  width: 100%;
+  height: 400px;
+  background-color: grey;
+}
+.mapouter {
+  /* position: relative; */
+  /* text-align: right; */
+  height: 620px;
+  width: 796px;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 620px;
+  width: 796px;
+}
+
+.body_content {
+  font-size: 18px;
+  color:#4D4D4D;
+}
+
+.documentation_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+
+}
+
+
+
+/* INTRO PAGE */
+a:link {
+  text-decoration: none;
+  color: #4D4D4D;
+}
+a:visited {
+  text-decoration: none;
+  color: #4D4D4D;
+}
+
+.box {
+	position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+	width:640px;
+	text-align:center;
+}
+
+.title,.title div span {
+	display:inline-block;
+  text-align:left;
+}
+.title {
+	position:relative;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin:0 auto;
+  color: #07689f;
+}
+.title .bar {
+	height:22px;
+	width:0%;
+  background:#ff7e67;
+}
+.title .text {
+	overflow:hidden;
+	width:0%;
+    margin-top:8px;
+    margin-bottom:8px;
+    /* color:#4ec7f3; */
+}
+
+.title .text span {
+	white-space: nowrap; 
+}
