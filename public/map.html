@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Eats</title>
+
+</head>
+<body>
+        <header>
+            <h1 style="font-size:500%";>SAFE <span style="color:#ff7e67";>EATS</span></h1>
+                <h1></h1>
+                </header>
+
+      <!-- NAVIGATION BAR -->
+      <nav>
+            <ul>
+                    <a href="index.html" style="color:#4D4D4D; font-weight: bold";><li>Home</li></a>
+                    <a href="home.html" style="color:#4D4D4D; font-weight: bold";><li>App</li></a>
+                    <a href="about.html" style="color:#4D4D4D; font-weight: bold";><li>About</li></a>
+                    <a href="documentation.html" style="color:#4D4D4D; font-weight: bold";><li>Documentation</li></a>
+                    <a href="map.html" style="color:#4D4D4D; font-weight: bold";><li>Map</li></a>
+                  </ul>
+
+          <div class="handle">
+            <p class="menu">Menu</p>
+            <div class="menu_icon">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+          </div>
+        </nav>
+        
+        <script>
+            $('.handle').on('click', function(){
+              $('nav ul').toggleClass('showing');
+            });
+
+        </script>
+
+
+
+</body>
+
+</html> 
