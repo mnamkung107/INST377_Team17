@@ -2,10 +2,15 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Eats</title>
+
 
 </head>
 <body>
@@ -71,19 +76,49 @@
     //   console.log(locations[0].coordinates);
     //   return total; 
     // });
-    let data = [];
 
-    $.ajax({
-      dataType: "json",
-      url: 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json',
-      success: handleResponse
-    });
+    let total = new Array();
+        let names = new Array();
+        let categories = new Array();
+        let results = new Array();
+        let locations = new Array();
 
-    function handleClick(i) {
-      console.log(data[i]);
+    
+      console.log("fetch"); // confirm code is running on click
+        fetch("/api")
+        .then(res => res.json())
+        .then(res => {
+          return res;
+        }) 
+    .then(res => res.data.map(c => c))
+    .then(res => {
+          console.log(res.length);
+          for(let x = 0; x < res.length; x++){
+            names.push(res[x].name);
+            categories.push(res[x].category);
+            results.push(res[x].inspection_results);
+            locations.push(res[x].geocoded_column_1);
+          }
+          total.push(res); //total[0] is res
+          total.push(names); //total[1] is names
+          total.push(categories); //total[2] is categories
+          total.push(results); //total[3] is results
+          total.push(locations);
+          return total; 
+        });
 
-      let lat = data[i].geocoded_column_1.coordinates[0];
-      let lng = data[i].geocoded_column_1.coordinates[1];
+      let data = [];
+
+        $.ajax({
+          dataType: "json",
+          url: 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json',
+          success: handleResponse
+        });
+        function handleClick(i) {
+          console.log(data[i]);
+
+          let lat = data[i].geocoded_column_1.coordinates[0];
+          let lng = data[i].geocoded_column_1.coordinates[1];
 
       var center = new google.maps.LatLng(lat, lng);
        // var map = document.getElementById("map");
@@ -91,27 +126,87 @@
       var marker = new google.maps.Marker({
         position: center,
         map: map,
-        title: 'Hello World!'
+        title: 'Location'
       });
-    }
+        }
+      function handleResponse(res) {
+          data = res;
+          for(let i = 0; i < res.length; i++) {
+            let list_item = '<div class="list-group-item list-group-item-action" onclick="handleClick('+i+')">'+res[i].name+'</div>';
+            $('#list_group').append(list_item);
+          }
+        }
 
-    function handleResponse(res) {
-      data = res;
-      for(let i = 0; i < res.length; i++) {
-        let list_item = '<div class="list-group-item list-group-item-action" onclick="handleClick('+i+')">'+res[i].name+'</div>';
-        $('#list_group').append(list_item);
-      }
-    }
-
-
+      var map, infoWindow;
     function initMap() {
       var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
+        center: {Lat: 43.654, Lng: -79.383},
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       map = new google.maps.Map(document.getElementById("map"),
           mapOptions);
+      var input = document.getElementById('Search');
+      var SearchBox = new google.maps.places.SearchBox(input);
+      map.addListner('bounds_changed', function()
+       {
+        SearchBox.SetBounds(map.getBounds());
+      })
+      var markers = [];
+      searchBox.addListener('places_changed', function()
+      {
+          var places=searchBox.getPlaces();
+          if(places.length===0)
+          return;
+
+          markers.forEach(function (m) {m.setMap(null); });
+          markers = [];
+
+          var bounds=new.google.maps.LatLngBounds();
+          places.forEach(function(p)
+          {
+            if(!p.geometry)
+            return;
+            markers.push(new google.maps.Marker({
+              map: map,
+              title: p.name, 
+              position: p.geometry.location
+            }));
+          if (p.geometry.viewport)
+        bounds.union(p.geometry.viewport);
+      else
+        bounds.extend(p.geometry.location);  
+          });
+          map.fitBounds(bounds);
+      });
+
+      
+      
+
+      infoWindow = new google.maps.infoWindow;
+      if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (p) {
+      var position = {
+        lat: p.coords.latitude,
+        lng: p.coords.longitude
+      };
+
+      infoWindow.setPosition(position);
+      infoWindow.setContent('Your location!');
+      infoWindow.open(map);
+      map.setCenter(position);
+    }, function () {
+      handleLocationError('Geolocation service failed', map.getCenter());
+    });
+  } else {
+    handleLocationError('No geolocation available.', map.getCenter());
+  }
+}
+
+function handleLocationError (content, position) {
+  infoWindow.setPosition(position);
+  infoWindow.setContent(content);
+  infoWindow.open(map);   
     }
     </script>
 
@@ -150,13 +245,20 @@
     </select>
     <input type="submit" />
   </form>
+  <br>
   <div id="content">
-    <div class="list-group" id="list_group">
-      
-    </div>
+      <div class="list-group" id="list_group">
+          
+        </div>
   </div> 
+  <br>
 </div>
 
+<div class ='row mb-2'>
+  <div class = 'column'>
+    <input class = 'form-control' id='search' type='text' placeholder='Search...'/> >
+  </div>
+</div>
 
 <!-- MAP -->
 <div class='column'>
@@ -170,7 +272,7 @@
 </div>
 
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dhqrdCy1oDakQU22tjcE4El8vG8cokg&callback=initMap&libraries=places">
 </script>
 
 
