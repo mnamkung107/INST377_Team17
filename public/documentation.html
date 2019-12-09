@@ -4,16 +4,13 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
-  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Eats</title>
 
 </head>
 <body>
         <header>
-                <h1 style="font-size:500%";>SAFE EATS</h1>
+                <h1 style="font-size:500%";>SAFE <span style="color:#ff7e67";>EATS</span></h1>
                 <h1></h1>
                 </header>
 
@@ -41,10 +38,9 @@
             });
         </script>
 
-
+            <!-- ACCORDION -->
               <div class="container">
 
-                    <!-- <h2>About Our App</h2> -->
                     <h2 style="color:#07689f">Documentation</h2>
                   
                     <div class="accordion">
@@ -57,13 +53,13 @@
                       </div>
                       <div class="accordion-item">
                           <a style="color:#ff7e67">Information Problem</a>
-                        <div class="content">
-                          <p>The information problem that we are trying to solve 
+                          <div class="content">
+                              <p>The information problem that we are trying to solve 
                                 is being unable to locate health information about various food facilities in an area 
                                 you may not be familiar with.
                             </p>
                         </div>
-                      </div>
+                    </div>
                       <div class="accordion-item">
                             <a style="color:#ff7e67">Stakeholders</a>
                           <div class="content">
@@ -74,7 +70,7 @@
                         <div class="accordion-item">
                                 <a style="color:#ff7e67">Data</a>
                               <div class="content">
-                                <p>https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz
+                                <p><a>https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2izM</a>
                                   </p>
                               </div>
                             </div>
@@ -119,30 +115,23 @@
                                                       </p>
                                                   </div>
                                                 </div>
-                    
+                    </div>
                     </div>
                     
-                  </div>
-        
-        
-                  <script>
+                    <!-- ACCORDION ANIMATION -->
+                    <script>
                         const items = document.querySelectorAll(".accordion a");
-        
-        function toggleAccordion(){
-          this.classList.toggle('active');
-          this.nextElementSibling.classList.toggle('active');
-        }
-        
-        items.forEach(item => item.addEventListener('click', toggleAccordion));
-                  </script>
-
+                        function toggleAccordion(){
+                        this.classList.toggle('active');
+                        this.nextElementSibling.classList.toggle('active');
+                    }
+                    items.forEach(item => item.addEventListener('click', toggleAccordion));
+                    </script>
 
       <div class="footer"></div>
     </div>
   </div>
 
-<!--Separate file that works with the form to filter for the selected options-->
-  <script src="filter.js"></script>
 
 </body>
 
