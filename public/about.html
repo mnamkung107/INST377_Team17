@@ -4,16 +4,13 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
-  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Eats</title>
 
 </head>
 <body>
         <header>
-                <h1 style="font-size:500%";>SAFE EATS</h1>
+            <h1 style="font-size:500%";>SAFE <span style="color:#ff7e67";>EATS</span></h1>
                 <h1></h1>
                 </header>
 
@@ -42,27 +39,10 @@
             });
 
         </script>
-<!--                 <h1 style="color:#07689f";>Our Goals<span style="color:#ff7e67">:</span></h1>
 
-    <p class="body_content">
-      With this app, we are trying to solve the information problem of locating specific facilities faster and helping individuals find places they feel more comfortable eating at. 
-      Someone who is not familiar with an area could have difficulty locating certain food facilities that meet their needs. 
-      Modern society is fast-paced and places a lot of emphasis on efficiency, and people are always looking for a way to get useful information as quickly as possible. 
-      Our system will have a filter feature which will allow users to look for restaurants that meet specific requirements.
-    </p>
-    <h1 style="color:#07689f";>Usage<span style="color:#ff7e67">:</span></h1>
-
-    <p class="body_content">
-      This app allows the user to search for food service facilities (restaurants, grocery stores, convenience stores, etc.).
-      The user is able to filter by category (bakery, grocery store, full service, fast food, etc.) and closest location.
-      The system would also let the user know if any of the facilities have “critical violations” or have failed their food inspection.
-      For example, if the user wants to buy coffee on their way to work, they would be able to find all of the coffee shops in the area and check if the coffee shop is safe. 
-    </p>
-     -->
     
     <div class="container">
 
-            <!-- <h2>About Our App</h2> -->
             <h2 style="color:#07689f";>About Our<span style="color:#ff7e67"> App</span></h2>
           
             <div class="accordion">
@@ -91,16 +71,14 @@
             
           </div>
 
-
           <script>
-                const items = document.querySelectorAll(".accordion a");
+          const items = document.querySelectorAll(".accordion a");
 
-function toggleAccordion(){
-  this.classList.toggle('active');
-  this.nextElementSibling.classList.toggle('active');
-}
-
-items.forEach(item => item.addEventListener('click', toggleAccordion));
+          function toggleAccordion(){
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          }
+          items.forEach(item => item.addEventListener('click', toggleAccordion));
           </script>
             
       <div class="footer"></div>
