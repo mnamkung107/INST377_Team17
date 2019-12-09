@@ -4,9 +4,6 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
-  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safe Eats</title>
 
@@ -14,7 +11,7 @@
 </head>
 <body>
     <header>
-      <h1 style="font-size:500%";>SAFE EATS</h1>
+            <h1 style="font-size:500%";>SAFE <span style="color:#ff7e67";>EATS</span></h1>
       <h1></h1>
       </header>
 
@@ -73,7 +70,6 @@
           total.push(categories); //total[2] is categories
           total.push(results); //total[3] is results
           total.push(locations);
-          console.log(locations[0].coordinates);
           return total; 
         });
         </script>
@@ -113,7 +109,10 @@
         </select>
         <input type="submit" />
       </form>
-      <div id="content"></div> 
+      <br>
+      <div id="content">
+      </div> 
+      <br>
     </div>
 
 
@@ -130,8 +129,8 @@
                 scrolling="no"
                 marginheight="0"
                 marginwidth="0"
-              ></iframe
-              
+              ></iframe>
+
             </div>
             </div>
           </div>
@@ -159,13 +158,15 @@
                     old_test.innerHTML = "";
 
                     for(let i = 0; i < e.selected.length; i++){
-                      let search_results = document.createElement('ul');
-                      search_results.style.listStyleType = 'none';
+                    let search_results = document.createElement('ul');
+                    search_results.style.listStyleType = 'none';
+                    search_results.style.fontWeight = 'bold';
                       let results_head = document.createElement("H2");
                       let head_item = document.createTextNode(e.selected[i]);
+                      results_head.style.color = "#ff7e67";
                       results_head.appendChild(head_item);
                       old_test.append(results_head);
-
+    
                       for(let x = 0; x < categories.length; x++){
                         if(categories[x] == e.selected[i]){ 
                           if(results[x] != "Non-Compliant - Violations Observed" ||
