@@ -1,63 +1,12 @@
-/* @import url(https://fonts.googleapis.com/css?family=Oswald); */
 
 *{
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* Header Format */
+
 body {
   margin:0px;
-  /* text-align:center; */
-  background:#FEFEFE;
-  color:#4D4D4D;
 }
 
-#container {
-  color:rgb(255, 255, 255);
-  text-transform: uppercase;
-  font-size:36px;
-  font-weight:bold; 
-  width:100%;
-  bottom:45%;
-  display:block;
-}
-
-#flip {
-  height:50px;
-  overflow:hidden;
-}
-
-#flip > div > div {
-  color:white;
-  padding:4px 12px;
-  height:45px;
-  margin-bottom:45px;
-  display:inline-block;
-}
-
-#flip div:first-child {
-  animation: show 5s linear infinite;
-}
-
-#flip div div {
-  background:#9ba1a3;
-}
-#flip div:first-child div {
-  background:#4ec7f3;
-}
-#flip div:last-child div {
-  background:#ff7e67;
-}
-
-@keyframes show {
-  0% {margin-top:-270px;}
-  5% {margin-top:-180px;}
-  33% {margin-top:-180px;}
-  38% {margin-top:-90px;}
-  66% {margin-top:-90px;}
-  71% {margin-top:0px;}
-  99.99% {margin-top:0px;}
-  100% {margin-top:-270px;}
-}
 
 p {
   width:100%;
@@ -79,6 +28,14 @@ p {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+}
+
+#content{
+  color: #07689f;
+  width: auto;
+  /* border: 5px solid #ff7e67; */
+  /* padding: auto; */
+  /* margin: auto;  */
 }
 
 /* Nav Bar Formatting */
@@ -179,6 +136,7 @@ div.checkbox_select
 {
   width: 300px;
   text-align: center;
+  font-weight: BOLD;
 }
 
 .checkbox_select_anchor
@@ -297,6 +255,7 @@ div.checkbox_select .select_input
     width: 100%;
     font-size: 14px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .hide
@@ -339,7 +298,7 @@ div.checkbox_select .select_input
 
 
 
-/* INTRO PAGE */
+/* INTRO PAGE ANIMATION */
 a:link {
   text-decoration: none;
   color: #4D4D4D;
@@ -388,11 +347,8 @@ a:visited {
 }
 
 
-
-
-
-
 /* ACCORDION */
+/* FOR THE ABOUT & DOCUMENTATION PAGES */
 
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
@@ -403,7 +359,6 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 
 h3 {
   font-size: 1.75rem;
