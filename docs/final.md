@@ -37,5 +37,5 @@ One possible direction our team considered for the future is allowing anonymous 
 
 ### Acknowledgements
 - Professor Leitch 
-- codepen.io
+- Codepen.io, helped with inspiration and ideas
 
