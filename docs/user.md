@@ -18,3 +18,5 @@ On the Application page, there is a search bar and a map which are the main poin
 5. Multiple categories may be selected at one time
 6. Selected categories will be highlighted orange and the top bar will display how many have been chosen
 7. When finished, click “Apply” to see a list of results
+8. The selected category will be displayed under and the food establishments that fall under the category that was filtered will appear below.
+
