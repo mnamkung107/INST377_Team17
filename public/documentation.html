@@ -46,76 +46,75 @@
                   
                     <div class="accordion">
                       <div class="accordion-item">
-                        <a style="color:#ff7e67">Team Members</a>
-                        <div class="content" style="color:#4D4D4D";>
-                          <p>Michelle Namkung, Aisha Koroma, Jason Jiang, Ayesha Shafquat, Japheth Mulugeta, Myles Lane
-                            </p>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                          <a style="color:#ff7e67">Information Problem</a>
-                          <div class="content">
-                              <p>The information problem that we are trying to solve 
-                                is being unable to locate health information about various food facilities in an area 
-                                you may not be familiar with.
-                            </p>
-                        </div>
-                    </div>
-                      <div class="accordion-item">
-                            <a style="color:#ff7e67">Stakeholders</a>
-                          <div class="content">
-                            <p>First-time travelers or even locals to the Prince George’s County Area looking for a sanitary place to eat.
-                              </p>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                                <a style="color:#ff7e67">Data</a>
-                              <div class="content">
-                                <p><a>https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2izM</a>
-                                  </p>
-                              </div>
-                            </div>
                             <div class="accordion-item">
-                                    <a style="color:#ff7e67">Solution</a>
+                                    <a style="color:#ff7e67">How to Use the Application</a>
                                   <div class="content">
-                                    <p>To build a web application that allows quick lookups, filter options by category, and excludes facilities with health code violations all on one system.
+                                    <p><ol style ="color:#4D4D4D";>
+                                        <li>Open the website and select “Click Here to Start” to open the application page and begin using it.</li>
+                                        <li>The navigation bar is blue (orange on mobile) and located directly under the title on every page and can be used to move between pages as follows:</li>
+                                        <ul>
+                                            <li>Home leads to the introductory animation page</li>
+                                            <li>App leads to main application page</li>
+                                            <li>About leads to a page explaining our goals and what the app is used for</li>
+                                            <li>Documentation leads to a page describing how to use the application</li>
+                                        </ul>
+                                        <li>On the Application page, there is a search bar and a map which are the main points of interactivity.</li>
+                                        <li>To begin a search:</li>
+                                            <ol>
+                                            <li>Click the search bar</li>
+                                            <li>A dropdown list of categories will appear</li>
+                                            <li>Scroll through the list or type in the text box above it to find a desired category and hit the checkbox on the left of the name to select it</li>
+                                            <li>If the category is not in the list, it will display “Not Found”</li>
+                                            <li>Multiple categories may be selected at one time</li>
+                                            <li>Selected categories will be highlighted orange and the top bar will display how many have been chosen</li>
+                                            <li>When finished, click “Apply” to see a list of results</li>           
+                                        </ol>                                 
+                                            <li>On the About and Documentation pages, you can click on any orange colored option to open up an “accordion” that contains the actual content</li>
+                                    </ol>   
                                       </p>
                                   </div>
                                 </div>
+                                                               
                                 <div class="accordion-item">
-                                        <a style="color:#ff7e67">Tech Rationale</a>
+                                        <a style="color:#ff7e67">GitHub Repository</a>
                                       <div class="content">
-                                        <p>To build something similar to Google Maps and Yelp that would allow you to look at restaurants nearby based on the category the user wants and helps the user avoid facilities that have health code violations.
-                                          </p>
+                                        <p>Our GitHub repository can be found at: <span><a>https://github.com/mnamkung107/INST377_Team17</a>
+                                          </span></p>
                                       </div>
                                     </div>
-                                    <div class="accordion-item">
-                                            <a style="color:#ff7e67">System</a>
-                                          <div class="content">
-                                            <p>The app helps to address the problem by 
-                                                    displaying a list of restaurants based on category and excluding any facilities that have failed their health code inspections.
-                                              </p>
-                                          </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                                <a style="color:#ff7e67">Challenges</a>
-                                              <div class="content">
-                                                <p><ul>
-                                                        <li>Using/connecting to Heroku </li>
-                                                        <li>Understanding how to access the server and pass specific information through</li>
-                                                        <li>Pinpointing location for user on maps and getting all of the restaurants implemented</li>
-                                                        <li>Determining what specific info was necessary</li>
-                                                      </ul>
-                                                  </p>
-                                              </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                    <a style="color:#ff7e67">Future Work</a>
-                                                  <div class="content">
-                                                    <p>Allowing anonymous users or employees to leave reviews or tips about the facilities they are at. This would be something like a "tip-line".
-                                                      </p>
-                                                  </div>
-                                                </div>
+                            <div class="accordion-item">
+                                    <a style="color:#ff7e67">How to Use the Application on a Personal Server</a>
+                                  <div class="content">
+                                    <p>These are steps to run the app on your personal machine with a personal server (not connecting to Heroku).
+                                        <ol style ="color:#4D4D4D";>
+                                        <li>Download the INST377_Team17 repository into whatever folder you want</li>
+                                        <li>In Terminal (on Mac) or Command Prompt (on Windows), navigate to the folder where you downloaded the repository</li>
+                                        <ol>
+                                                <li>You should access the code files in this folder</li>       
+                                            </ol>   
+                                        <li>Enter the command: <span style="color:#07689f";>npm install</span>  
+                                            </li>
+                                            <ol>
+                                            <li>Once that has finished downloading, enter the command: <span style="color:#07689f";>npm start</span> </li>       
+                                        </ol>                                 
+                                            <li>This command will start a server on your personal machine on port 3000</li>
+                                            <li>Open a browser and navigate to localhost:3000</li>
+                                            <li>The app should open there</li>
+                                            <li>This page will update in real-time every time you make changes to the code, save it, then refresh the page</li>
+                                            <li>This is ideal for testing code and seeing the results update in real time</li>
+                                    </ol>   
+                                      </p>
+                                  </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                        <a style="color:#ff7e67">API</a>
+                                      <div class="content">
+                                        <p>The API we access with our GET call in our server.js file can be found at: <span><a>https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2izM</a>
+                                          </span></p>
+                                      </div>
+                                    </div>
+
                     </div>
                     </div>
                     
