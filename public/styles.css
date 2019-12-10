@@ -266,34 +266,7 @@ div.checkbox_select .select_input
 
 /* MAP */
 #map {
-  width: 100%;
-  height: 400px;
-  background-color: grey;
-}
-.mapouter {
-  /* position: relative; */
-  /* text-align: right; */
-  height: 620px;
-  width: 796px;
-}
-.gmap_canvas {
-  overflow: hidden;
-  background: none !important;
-  height: 620px;
-  width: 796px;
-}
-
-.body_content {
-  font-size: 18px;
-  color:#4D4D4D;
-}
-
-.documentation_list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  
-
+  height: 500px;
 }
 
 

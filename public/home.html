@@ -23,7 +23,6 @@
             <a href="home.html" style="color:#4D4D4D; font-weight: bold";><li>App</li></a>
             <a href="about.html" style="color:#4D4D4D; font-weight: bold";><li>About</li></a>
             <a href="documentation.html" style="color:#4D4D4D; font-weight: bold";><li>Documentation</li></a>
-            <a href="map.html" style="color:#4D4D4D; font-weight: bold";><li>Map</li></a>
           </ul>
           <div class="handle">
             <p class="menu" style="font-size:100%">Menu</p>
@@ -118,26 +117,9 @@
 
 
 <!-- MAP -->
-    <div class='column'>
-        <div class="mapouter">
-            <div class="gmap_canvas">
-              <iframe
-                width="796"
-                height="620"
-                id="gmap_canvas"
-                src="https://maps.google.com/maps?q=prince%20Georges%20county&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-              ></iframe>
-
-            </div>
-            </div>
-          </div>
-    </div>
-  </div>
-
+<script src="filter.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dhqrdCy1oDakQU22tjcE4El8vG8cokg&callback=createMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dhqrdCy1oDakQU22tjcE4El8vG8cokg&callback=createMap&libraries=places" async defer></script>
 
 
       <!--Starting script to filter the data-->
