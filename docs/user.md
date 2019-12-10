@@ -1,5 +1,4 @@
 # User Manual
-
 This app allows the user to search for food service facilities (restaurants, grocery stores, convenience stores, etc.). The user is able to filter by category (bakery, grocery store, full service, fast food, etc.). For example, if the user wants to buy coffee on their way to work, they would be able to find all of the coffee shops in the area and check if the coffee shop is safe.
 
 ## How to Use Safe Eats:
@@ -12,6 +11,7 @@ Open the website and select “Click Here to Start” to open the application pa
 - Documentation leads to a page describing our team, stakeholders, dataset and other information surrounding the completion of the application
 
 On the Application page, there is a search bar and a map which are the main points of interactivity.
+
 **To begin a search:**
 
 1. Click the search bar
