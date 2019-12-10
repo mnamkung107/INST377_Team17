@@ -19,7 +19,7 @@ Read the [Final Report](https://github.com/mnamkung107/INST377_Team17/blob/maste
 
 # Developers
 
-### Running the App through Heroku:
+## Running the App through Heroku:
 **Connect the repository to Heroku**
 1. Make a Heroku account
 2. Create a new app and connect it to the Github where you stored the appropriate repository
@@ -30,20 +30,20 @@ Read the [Final Report](https://github.com/mnamkung107/INST377_Team17/blob/maste
     - In our case, it was INST377-Team17
 
 
-### Running the app on your personal machine with a personal server (Not Connecting to Heroku):
+## Running the app on your personal machine with a personal server (Not Connecting to Heroku):
 1. Download the [INST377_Team17](https://github.com/mnamkung107/INST377_Team17) repository into whatever folder you want
 2. In Terminal (on Mac) or Command Prompt (on Windows), navigate to the folder where you downloaded the repository
-3. Enter the command: 'npm install'
-    - Once it has downloaded, run: 'npm start'
-    *This command will start a server on your personal machine on port 3000*
-4. Open a browser and navigate to localhost:3000 the app should open there.
+3. Enter the command: `npm install`
+    - Once it has downloaded, run: `npm start`
+    - *This command will start a server on your personal machine on port 3000*
+4. Open a browser and navigate to localhost:3000. The app should open there.
 5. This page will update in **real-time**. Every time you make changes to the code, save it, then refresh the page
-*This is ideal for testing code and seeing the results update in real time*
+- *This is ideal for testing code and seeing the results update in real time*
 
 ### API Endpoint:
 The GET command in our server.js file accesses our dataset at https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json 
 
 ### Current known bugs:
-There are almost 33,000 separate entities in the entire dataset, but our current code only contains 1,000
-MAP
-Some of the site styling could use some work :)
+- There are almost 33,000 separate entities in the entire dataset, but our current code only contains 1,000
+MAP.
+- Some of the site styling could use some work :)

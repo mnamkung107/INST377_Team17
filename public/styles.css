@@ -360,6 +360,7 @@ html {
   box-sizing: border-box;
 }
 
+
 h3 {
   font-size: 1.75rem;
   color: #373d51;
@@ -438,7 +439,7 @@ h3 {
 
 .accordion .content p {
   font-size: 1rem;
-  /* font-weight: 300; */
+  color:#4D4D4D;
 }
 
 .accordion .content.active {
