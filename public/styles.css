@@ -33,9 +33,6 @@ p {
 #content{
   color: #07689f;
   width: auto;
-  /* border: 5px solid #ff7e67; */
-  /* padding: auto; */
-  /* margin: auto;  */
 }
 
 /* Nav Bar Formatting */
@@ -137,6 +134,7 @@ div.checkbox_select
   width: 300px;
   text-align: center;
   font-weight: BOLD;
+  color:white;
 }
 
 .checkbox_select_anchor
