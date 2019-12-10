@@ -38,4 +38,8 @@ One possible direction our team considered for the future is allowing anonymous 
 ### Acknowledgements
 - Professor Leitch 
 - Codepen.io, helped with inspiration and ideas
+- Charlie Walter: https://codepen.io/cjonasw/pen/nFdvw
+- Jack Fitzgibbon: https://codepen.io/jackfitzgibbon/pen/BHxoa
+- Felice Gattuso: https://codepen.io/felicegattuso/pen/MegJpg
+- Katherine Kato: https://codepen.io/kathykato/pen/MoZJom
 
