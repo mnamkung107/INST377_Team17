@@ -12,7 +12,7 @@ We chose to work with the Prince George’s County Food Inspection Dataset found
 Our solution for this problem was to build a web application that allows rapid searching and filtering through categories to find food service facilities that are in compliance with the health code all on one system.
 The technical system decision rationale was to build something similar to Google Maps and Yelp that would allow the user to look at restaurants nearby based on the category they want and help them avoid facilities that have health code violations.
 
-Our team believes the app helps to address the problem by displaying a list of restaurants based on category and excluding any facilities that have failed their health code inspections.
+Our team believes the app addresses the problem by displaying a list of restaurants based on category and excluding any facilities that have failed their health code inspections.
 
 ### Challenges
 
