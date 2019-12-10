@@ -2,8 +2,6 @@
 //CHARLIE WALTER MUTLISELECT(DROPDOWN)
 //https://codepen.io/cjonasw/pen/nFdvw
 
-
-
 if(typeof String.prototype.trim !== 'function') {
     String.prototype.trim = function()
     {
@@ -292,6 +290,7 @@ var checkbox_select = function(params)
     $_native_select.hide();
 
 };
+
 var map, infoWindow;
 
 function createMap() {
