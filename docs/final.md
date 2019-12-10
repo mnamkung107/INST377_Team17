@@ -1,11 +1,11 @@
 # Final Report
 ## Safe Eats
 
-**Our team members:** Michelle Namkung, Aisha Koroma, Jason Jiang, Ayesha Shafquat, Japheth Mulugeta and Myles Lane
+**Team members:** Michelle Namkung, Aisha Koroma, Jason Jiang, Ayesha Shafquat, Japheth Mulugeta and Myles Lane
 
 The app can be found running [Here](https://inst377-team17.herokuapp.com/index.html "Safe Eats").
 
-The information problem that we are trying to solve is being unable to locate health information about various food facilities in an area you may not be familiar with. The stakeholders and target users for our app include first-time travelers and locals to the Prince George’s County Area looking for a sanitary place to eat.
+**Information Problem:** Unable to locate health information about various food facilities in an area you may not be familiar with. The stakeholders and target users for our app include first-time travelers and locals to the Prince George’s County Area looking for a sanitary place to eat.
 
 We chose to work with the Prince George’s County Food Inspection Dataset found [on their website](https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz). It contains data on the compliance of food service facilities across PG County and is a reliable data source that is updated daily.
 
