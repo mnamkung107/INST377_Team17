@@ -34,3 +34,8 @@ We did have to make some changes from our original interface. At first, when the
 ### For the Future
 
 One possible direction our team considered for the future is allowing anonymous users or employees to leave reviews or tips about the facilities they are at. This would be something like a "tip-line", a Yelp-like feature that will give users information thorugh the app ahead of time.
+
+### Acknowledgements
+- Professor Leitch 
+- codepen.io
+
