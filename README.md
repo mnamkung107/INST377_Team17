@@ -45,5 +45,4 @@ The GET command in our server.js file accesses our dataset at https://data.princ
 
 ### Current known bugs:
 - There are almost 33,000 separate entities in the entire dataset, but our current code only contains 1,000
-MAP.
 - Some of the site styling could use some work :)

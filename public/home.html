@@ -23,7 +23,6 @@
             <a href="home.html" style="color:#4D4D4D; font-weight: bold";><li>App</li></a>
             <a href="about.html" style="color:#4D4D4D; font-weight: bold";><li>About</li></a>
             <a href="documentation.html" style="color:#4D4D4D; font-weight: bold";><li>Documentation</li></a>
-            <a href="map.html" style="color:#4D4D4D; font-weight: bold";><li>Map</li></a>
           </ul>
           <div class="handle">
             <p class="menu" style="font-size:100%">Menu</p>
@@ -117,27 +116,43 @@
     </div>
 
 
-<!-- MAP -->
-    <div class='column'>
-        <div class="mapouter">
-            <div class="gmap_canvas">
-              <iframe
-                width="796"
-                height="620"
-                id="gmap_canvas"
-                src="https://maps.google.com/maps?q=prince%20Georges%20county&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-              ></iframe>
+  <!-- Stylesheets. -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-            </div>
-            </div>
-          </div>
+    <div class="col">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <h1 class="display-4">Search Address</h1>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col">
+        <input class="form-control" id="search" type="text" placeholder="Search..." />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div id="map"></div>
+      </div>
     </div>
   </div>
-
+</div>
+ 
+  <!-- Bootstrap scripts. -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <!-- Google Maps scripts. -->
+  <script src="filter.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dhqrdCy1oDakQU22tjcE4El8vG8cokg&callback=createMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dhqrdCy1oDakQU22tjcE4El8vG8cokg&callback=createMap&libraries=places" async defer></script>
+</body>
+</html>
 
 
       <!--Starting script to filter the data-->
