@@ -9,7 +9,7 @@ Safe Eats
 
 Michelle Namkung, Aisha Koroma, Jason Jiang, Ayesha Shafquat, Japheth Mulugeta, Myles Lane
 
-## Link to where your app is running
+## Link to where app is running
 
 inst377-team17.herokuapp.com
 
@@ -84,7 +84,7 @@ Our team believes the app addresses the problem by displaying a list of restaura
 
 Many of the issues came from a lack of time. Ideas would all take a significant amount of time to research and code but our lack of time meant we needed to scrap the ideas in order to complete the project on time. This could have been avoided by less procrastination and more communication.
 
-We did have to make some changes from our original interface. At first, when the user would filter through what place they would like to eat. Every option would appear after clicking “Apply” and those that did not pass health code violations, had a red dot next to it and those that passed had a green dot. We found this as not necessarily and we did not believe that the user needs to know of the locations/restaurants that are not sanitary and because of that we omitted the places that did not pass. So if the user chooses to eat at a bakery, only those that passed health code inspections would appear. 
+We did have to make some changes from our original interface. At first, when the user would filter through what place they would like to eat. Every option would appear after clicking “Apply” and those that did not pass health code violations, had a red dot next to it and those that passed had a green dot. We found this as not necessarily and we did not believe that the user needs to know of the locations/restaurants that are not sanitary and because of that we omitted the places that did not pass. So if the user chooses to eat at a bakery, only those that passed health code inspections would appear.
 
 ### For the Future
 
